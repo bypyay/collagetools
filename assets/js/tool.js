@@ -23,13 +23,13 @@ let _txtBold=false,_txtItalic=false,_txtShadow=true,_txtBg=false;
 let history=[],historyIdx=-1;
 let showBorders=false,showWm=false;
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════════════════════════
 // FABRIC.JS TEXT LAYER
 // Text elements live on a Fabric canvas overlaid on #collage-canvas. The editor IS
-// the canvas, so the bytes you see are the bytes that get exported Ã¢â‚¬â€ no two-renderer
+// the canvas, so the bytes you see are the bytes that get exported — no two-renderer
 // mismatch. Photos and shapes remain DOM elements for now; the Fabric canvas sits on
 // top with pointer-events toggled dynamically so clicks on empty space fall through.
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════════════════════════
 let fabricCanvas=null;
 
 function initFabricLayer(){
@@ -37,10 +37,10 @@ function initFabricLayer(){
   const el=document.getElementById('fabric-text-layer');
   if(!el)return;
   // Quality knobs:
-  //   enableRetinaScaling Ã¢â‚¬â€ ups the drawing buffer to devicePixelRatio so glyph edges
+  //   enableRetinaScaling — ups the drawing buffer to devicePixelRatio so glyph edges
   //     stay sharp on hi-DPI displays (default true in Fabric 5+ but explicit here).
-  //   imageSmoothingEnabled Ã¢â‚¬â€ true so any glyph cache resampling stays smooth.
-  //   devicePixelRatio override Ã¢â‚¬â€ Fabric reads window.devicePixelRatio at construction.
+  //   imageSmoothingEnabled — true so any glyph cache resampling stays smooth.
+  //   devicePixelRatio override — Fabric reads window.devicePixelRatio at construction.
   fabricCanvas=new fabric.Canvas(el,{
     width:canvasW,
     height:canvasH,
@@ -53,7 +53,7 @@ function initFabricLayer(){
     imageSmoothingEnabled:true,
   });
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬ Custom delete control: a red Ãƒâ€” button at the top-right of every selected text.
+  // Ã¢â€â‚¬Ã¢â€â‚¬ Custom delete control: a red × button at the top-right of every selected text.
   // Click removes the object; Fabric's built-in corner controls (resize / rotate)
   // remain intact.
   const renderDeleteIcon=(ctx,left,top,styleOverride,fabricObj)=>{
@@ -137,7 +137,7 @@ function initFabricLayer(){
   }
   // Ã¢â€â‚¬Ã¢â€â‚¬ Fabric 5.1.0 textBaseline typo workaround Ã¢â€â‚¬Ã¢â€â‚¬
   // Inside fabric.min.js, _setTextStyles assigns ctx.textBaseline = 'alphabetical'
-  // Ã¢â‚¬â€ a typo for the valid HTML5 Canvas value 'alphabetic'. Older Chrome silently
+  // — a typo for the valid HTML5 Canvas value 'alphabetic'. Older Chrome silently
   // coerced it; current Chrome (April 2026+) throws a CanvasTextBaseline enum
   // validation error after every text render. We wrap the 2D-context setter so
   // the bad value is quietly remapped to 'alphabetic' before it hits the engine.
@@ -192,16 +192,16 @@ function initFabricLayer(){
   // over a Fabric text.
   document.addEventListener('touchstart',e=>{if(e.touches[0])updatePointerEvents(e.touches[0].clientX,e.touches[0].clientY);},true);
 
-  // Selection lifecycle Ã¢â€ â€™ bridge to existing right-panel infrastructure.
+  // Selection lifecycle → bridge to existing right-panel infrastructure.
   fabricCanvas.on('selection:created',e=>onFabricSelectionChange(e.selected?.[0]||fabricCanvas.getActiveObject()));
   fabricCanvas.on('selection:updated',e=>onFabricSelectionChange(e.selected?.[0]||fabricCanvas.getActiveObject()));
   fabricCanvas.on('selection:cleared',()=>onFabricSelectionChange(null));
 
   // Persist to history on meaningful Fabric mutations.
-  //   object:modified Ã¢â‚¬â€ single discrete event at end of move/resize/rotate; record
+  //   object:modified — single discrete event at end of move/resize/rotate; record
   //                     immediately (no debounce) so each gesture is one entry.
-  //   object:added / object:removed Ã¢â‚¬â€ also discrete; immediate.
-  //   text:changed Ã¢â‚¬â€ fires on every keystroke during inline edit; debounce so a typing
+  //   object:added / object:removed — also discrete; immediate.
+  //   text:changed — fires on every keystroke during inline edit; debounce so a typing
   //                  burst collapses into one entry.
   const immediateSave=()=>{if(_suppressHistory)return;if(typeof saveHistory==='function')saveHistory();};
   const debouncedTextSave=()=>{if(_suppressHistory)return;if(typeof debouncedSave==='function')debouncedSave();else if(typeof saveHistory==='function')saveHistory();};
@@ -256,7 +256,7 @@ function cssStyleToFabricProps(cssStyle){
   else if(s.color)props.fill='rgba(0,0,0,0)';
   if(s.textAlign)props.textAlign=s.textAlign;
   if(s.letterSpacing){
-    // Fabric uses charSpacing (units = 1/1000 em). Convert px Ã¢â€ â€™ em via font size.
+    // Fabric uses charSpacing (units = 1/1000 em). Convert px → em via font size.
     const ls=parseFloat(s.letterSpacing)||0;
     const fs=parseFloat(s.fontSize)||36;
     if(fs>0)props.charSpacing=Math.round((ls/fs)*1000);
@@ -272,7 +272,7 @@ function cssStyleToFabricProps(cssStyle){
   }
   if(s.textShadow&&s.textShadow!=='none'){
     // Parse first shadow only (Fabric supports single shadow per object).
-    // Format: "offsetX offsetY blur color" Ã¢â‚¬â€ color may be rgba() or hex.
+    // Format: "offsetX offsetY blur color" — color may be rgba() or hex.
     const str=s.textShadow.trim();
     const colorRe=/rgba?\([^)]+\)|#[0-9a-fA-F]{3,8}/;
     const colorMatch=str.match(colorRe);
@@ -330,7 +330,7 @@ function applyTextTransform(text,transform){
 // the text's origin: 'center' centers horizontally on x; 'right' right-aligns to x;
 // default places the left edge at x.
 // opts.autoSelect (default true): when false, the text is added without selecting it.
-// Use false when bulk-adding text from a template Ã¢â‚¬â€ selecting every text on load
+// Use false when bulk-adding text from a template — selecting every text on load
 // shows handles + delete control on each one which clutters the canvas.
 function addFabricTextAt(text,cssStyle,x,y,align,opts){
   if(!fabricCanvas)initFabricLayer();
@@ -351,7 +351,7 @@ function addFabricTextAt(text,cssStyle,x,y,align,opts){
     // Re-render text vectorially every frame instead of caching a bitmap. Fabric's
     // default object cache lets text get pixelated when the canvas is zoomed; turning
     // it off keeps glyph edges crisp at any zoom level (small cost: redraw per frame
-    // for active edits Ã¢â‚¬â€ negligible for a handful of text layers).
+    // for active edits — negligible for a handful of text layers).
     objectCaching:false,
     statefullCache:false,
     noScaleCache:true,
@@ -363,7 +363,7 @@ function addFabricTextAt(text,cssStyle,x,y,align,opts){
   if(autoSelect){
     fabricCanvas.setActiveObject(it);
     fabricCanvas.requestRenderAll();
-    // setActiveObject doesn't always fire selection:created Ã¢â‚¬â€ call the bridge directly
+    // setActiveObject doesn't always fire selection:created — call the bridge directly
     // so the right panel shows properties for freshly-added text.
     onFabricSelectionChange(it);
   }else{
@@ -434,7 +434,7 @@ function onFabricSelectionChange(obj){
   if(obj&&(obj.type==='i-text'||obj.type==='text'||obj.type==='textbox')){
     selectedElem={__fabric:obj,dataset:{elemType:'text'}};
     if(typeof updateRightPanelForElem==='function')updateRightPanelForElem(selectedElem);
-    // The right panel is updated, but don't auto-open it on mobile Ã¢â‚¬â€ the user
+    // The right panel is updated, but don't auto-open it on mobile — the user
     // tapped to select / drag the text, not to style it.
   }else{
     selectedElem=null;
@@ -483,8 +483,8 @@ const TEMPLATES=[
   {n:5,name:'Big+4 Edge',id:'be5',cells:[[.2,.2,.6,.6],[0,0,.2,1],[.8,0,.2,1],[.2,0,.6,.2],[.2,.8,.6,.2]]},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 6 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:6,name:'2Ãƒâ€”3 Grid',id:'g23',cells:[[0,0,1/3,1/2],[1/3,0,1/3,1/2],[2/3,0,1/3,1/2],[0,.5,1/3,.5],[1/3,.5,1/3,.5],[2/3,.5,1/3,.5]]},
-  {n:6,name:'3Ãƒâ€”2 Grid',id:'g32',cells:[[0,0,.5,1/3],[.5,0,.5,1/3],[0,1/3,.5,1/3],[.5,1/3,.5,1/3],[0,2/3,.5,1/3],[.5,2/3,.5,1/3]]},
+  {n:6,name:'2×3 Grid',id:'g23',cells:[[0,0,1/3,1/2],[1/3,0,1/3,1/2],[2/3,0,1/3,1/2],[0,.5,1/3,.5],[1/3,.5,1/3,.5],[2/3,.5,1/3,.5]]},
+  {n:6,name:'3×2 Grid',id:'g32',cells:[[0,0,.5,1/3],[.5,0,.5,1/3],[0,1/3,.5,1/3],[.5,1/3,.5,1/3],[0,2/3,.5,1/3],[.5,2/3,.5,1/3]]},
   {n:6,name:'1+5',id:'o15',cells:[[0,0,1,.45],[0,.45,.2,.55],[.2,.45,.2,.55],[.4,.45,.2,.55],[.6,.45,.2,.55],[.8,.45,.2,.55]]},
   {n:6,name:'Big+5',id:'b6',cells:[[0,0,.6,.6],[.6,0,.4,.3],[.6,.3,.4,.3],[0,.6,.25,.4],[.25,.6,.25,.4],[.5,.6,.5,.4]]},
   {n:6,name:'Mosaic 6',id:'mos6',cells:[[0,0,.5,.5],[.5,0,.25,.25],[.75,0,.25,.25],[.5,.25,.25,.25],[.75,.25,.25,.25],[0,.5,1,.5]]},
@@ -495,10 +495,10 @@ const TEMPLATES=[
   {n:7,name:'Big+6',id:'b7',cells:[[0,0,.6,.6],[.6,0,.4,.3],[.6,.3,.4,.3],[0,.6,.2,.4],[.2,.6,.2,.4],[.4,.6,.2,.4],[.6,.6,.4,.4]]},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 8 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:8,name:'2Ãƒâ€”4 Grid',id:'g24',cells:[
+  {n:8,name:'2×4 Grid',id:'g24',cells:[
     [0,0,.25,.5],[.25,0,.25,.5],[.5,0,.25,.5],[.75,0,.25,.5],
     [0,.5,.25,.5],[.25,.5,.25,.5],[.5,.5,.25,.5],[.75,.5,.25,.5]]},
-  {n:8,name:'4Ãƒâ€”2 Grid',id:'g42',cells:[
+  {n:8,name:'4×2 Grid',id:'g42',cells:[
     [0,0,.5,.25],[.5,0,.5,.25],[0,.25,.5,.25],[.5,.25,.5,.25],
     [0,.5,.5,.25],[.5,.5,.5,.25],[0,.75,.5,.25],[.5,.75,.5,.25]]},
   {n:8,name:'Mosaic 8',id:'mos8',cells:[
@@ -510,7 +510,7 @@ const TEMPLATES=[
     [0,.5,.33,.5],[.33,.5,.34,.5],[.67,.5,.33,.5]]},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 9 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:9,name:'3Ãƒâ€”3 Grid',id:'g9',cells:[
+  {n:9,name:'3×3 Grid',id:'g9',cells:[
     [0,0,1/3,1/3],[1/3,0,1/3,1/3],[2/3,0,1/3,1/3],
     [0,1/3,1/3,1/3],[1/3,1/3,1/3,1/3],[2/3,1/3,1/3,1/3],
     [0,2/3,1/3,1/3],[1/3,2/3,1/3,1/3],[2/3,2/3,1/3,1/3]]},
@@ -521,26 +521,26 @@ const TEMPLATES=[
     [0,.70,.333,.30],[.333,.70,.334,.30],[.667,.70,.333,.30]]},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 10 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:10,name:'2Ãƒâ€”5 Grid',id:'g25',cells:[
+  {n:10,name:'2×5 Grid',id:'g25',cells:[
     [0,0,.2,.5],[.2,0,.2,.5],[.4,0,.2,.5],[.6,0,.2,.5],[.8,0,.2,.5],
     [0,.5,.2,.5],[.2,.5,.2,.5],[.4,.5,.2,.5],[.6,.5,.2,.5],[.8,.5,.2,.5]]},
-  {n:10,name:'5Ãƒâ€”2 Vertical',id:'g52',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<2;c++)a.push([c/2,r/5,.5,.2]);return a;})()},
+  {n:10,name:'5×2 Vertical',id:'g52',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<2;c++)a.push([c/2,r/5,.5,.2]);return a;})()},
   {n:10,name:'Big+9',id:'b10',cells:[
     [0,0,.6,.6],
     [.6,0,.2,.2],[.8,0,.2,.2],[.6,.2,.2,.2],[.8,.2,.2,.2],[.6,.4,.2,.2],[.8,.4,.2,.2],
     [0,.6,.33,.4],[.33,.6,.34,.4],[.67,.6,.33,.4]]},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 12 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:12,name:'3Ãƒâ€”4 Grid',id:'g34',cells:[
+  {n:12,name:'3×4 Grid',id:'g34',cells:[
     [0,0,1/4,1/3],[1/4,0,1/4,1/3],[2/4,0,1/4,1/3],[3/4,0,1/4,1/3],
     [0,1/3,1/4,1/3],[1/4,1/3,1/4,1/3],[2/4,1/3,1/4,1/3],[3/4,1/3,1/4,1/3],
     [0,2/3,1/4,1/3],[1/4,2/3,1/4,1/3],[2/4,2/3,1/4,1/3],[3/4,2/3,1/4,1/3]]},
-  {n:12,name:'4Ãƒâ€”3 Grid',id:'g43',cells:[
+  {n:12,name:'4×3 Grid',id:'g43',cells:[
     [0,0,1/3,1/4],[1/3,0,1/3,1/4],[2/3,0,1/3,1/4],
     [0,1/4,1/3,1/4],[1/3,1/4,1/3,1/4],[2/3,1/4,1/3,1/4],
     [0,2/4,1/3,1/4],[1/3,2/4,1/3,1/4],[2/3,2/4,1/3,1/4],
     [0,3/4,1/3,1/4],[1/3,3/4,1/3,1/4],[2/3,3/4,1/3,1/4]]},
-  {n:12,name:'2Ãƒâ€”6 Wide',id:'g26',cells:(()=>{const a=[];for(let r=0;r<2;r++)for(let c=0;c<6;c++)a.push([c/6,r/2,1/6,.5]);return a;})()},
+  {n:12,name:'2×6 Wide',id:'g26',cells:(()=>{const a=[];for(let r=0;r<2;r++)for(let c=0;c<6;c++)a.push([c/6,r/2,1/6,.5]);return a;})()},
   {n:7,name:'Family Tree',id:'fam_tree_7',cells:[
     [.4,0,.2,.3],
     [.15,.35,.25,.3],[.6,.35,.25,.3],
@@ -553,17 +553,17 @@ const TEMPLATES=[
     [3/6,.65,1/6,.35],[4/6,.65,1/6,.35],[5/6,.65,1/6,.35]]},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 15 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:15,name:'3Ãƒâ€”5 Grid',id:'g35',cells:[
+  {n:15,name:'3×5 Grid',id:'g35',cells:[
     [0,0,.2,1/3],[.2,0,.2,1/3],[.4,0,.2,1/3],[.6,0,.2,1/3],[.8,0,.2,1/3],
     [0,1/3,.2,1/3],[.2,1/3,.2,1/3],[.4,1/3,.2,1/3],[.6,1/3,.2,1/3],[.8,1/3,.2,1/3],
     [0,2/3,.2,1/3],[.2,2/3,.2,1/3],[.4,2/3,.2,1/3],[.6,2/3,.2,1/3],[.8,2/3,.2,1/3]]},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 16 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:16,name:'4Ãƒâ€”4 Grid',id:'g44',cells:(()=>{const a=[];for(let r=0;r<4;r++)for(let c=0;c<4;c++)a.push([c/4,r/4,.25,.25]);return a;})()},
+  {n:16,name:'4×4 Grid',id:'g44',cells:(()=>{const a=[];for(let r=0;r<4;r++)for(let c=0;c<4;c++)a.push([c/4,r/4,.25,.25]);return a;})()},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 20 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:20,name:'4Ãƒâ€”5 Grid',id:'g45',cells:(()=>{const a=[];for(let r=0;r<4;r++)for(let c=0;c<5;c++)a.push([c/5,r/4,.2,.25]);return a;})()},
-  {n:20,name:'5Ãƒâ€”4 Vertical',id:'g54',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<4;c++)a.push([c/4,r/5,.25,.2]);return a;})()},
+  {n:20,name:'4×5 Grid',id:'g45',cells:(()=>{const a=[];for(let r=0;r<4;r++)for(let c=0;c<5;c++)a.push([c/5,r/4,.2,.25]);return a;})()},
+  {n:20,name:'5×4 Vertical',id:'g54',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<4;c++)a.push([c/4,r/5,.25,.2]);return a;})()},
   {n:20,name:'20 Mosaic',id:'mosaic_20',cells:[
     [0,0,.4,.4],[.4,0,.2,.2],[.6,0,.2,.2],[.8,0,.2,.2],
     [.4,.2,.2,.2],[.6,.2,.2,.2],[.8,.2,.2,.2],
@@ -571,7 +571,7 @@ const TEMPLATES=[
     [0,.6,.4,.2],[.4,.6,.2,.2],[.6,.6,.2,.2],[.8,.6,.2,.2],
     [0,.8,.2,.2],[.2,.8,.2,.2],[.4,.8,.2,.2],[.6,.8,.4,.2]]},
   {n:20,name:'20 Frame + Heart',id:'frame_20',...(()=>{
-    // Border ring of a 6Ãƒâ€”6 grid (20 photos) framing a heart-shaped photo in the center.
+    // Border ring of a 6×6 grid (20 photos) framing a heart-shaped photo in the center.
     // shapeCells routes rendering through renderShapeCollage so the center cell clips to a heart.
     const sc=[];for(let r=0;r<6;r++)for(let c=0;c<6;c++)if(r===0||r===5||c===0||c===5)sc.push({x:c/6,y:r/6,w:1/6,h:1/6});
     sc.push({x:.3,y:.3,w:.4,h:.4,shape:'heart'});
@@ -586,13 +586,13 @@ const TEMPLATES=[
     for(let r=0;r<4;r++)for(let c=0;c<4;c++)a.push([c*.25,.4+r*.15,.25,.15]);return a;})()},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 25 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:25,name:'5Ãƒâ€”5 Grid',id:'g55',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<5;c++)a.push([c/5,r/5,.2,.2]);return a;})()},
+  {n:25,name:'5×5 Grid',id:'g55',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<5;c++)a.push([c/5,r/5,.2,.2]);return a;})()},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 30 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:30,name:'5Ãƒâ€”6 Grid',id:'g56',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<6;c++)a.push([c/6,r/5,1/6,.2]);return a;})()},
+  {n:30,name:'5×6 Grid',id:'g56',cells:(()=>{const a=[];for(let r=0;r<5;r++)for(let c=0;c<6;c++)a.push([c/6,r/5,1/6,.2]);return a;})()},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 36 PHOTOS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:36,name:'6Ãƒâ€”6 Grid',id:'g66',cells:(()=>{const a=[];for(let r=0;r<6;r++)for(let c=0;c<6;c++)a.push([c/6,r/6,1/6,1/6]);return a;})()},
+  {n:36,name:'6×6 Grid',id:'g66',cells:(()=>{const a=[];for(let r=0;r<6;r++)for(let c=0;c<6;c++)a.push([c/6,r/6,1/6,1/6]);return a;})()},
 
   // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ CREATIVE 2 Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
   {n:2,name:'Overlap',id:'d5',cells:[[0,0,.7,.7],[.3,.3,.7,.7]]},
@@ -655,8 +655,8 @@ const TEMPLATES=[
     [0,.5,.2,.5],[.2,.5,.2,.25],[.4,.5,.2,.25],[.6,.5,.2,.5],[.8,.5,.2,.25],
     [.2,.75,.2,.25],[.4,.75,.2,.25],[.8,.75,.2,.25]]},
 
-  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 30 PHOTOS Ã¢â‚¬â€ additional layouts Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
-  {n:30,name:'6Ãƒâ€”5 Vertical',id:'g65',cells:(()=>{const a=[];for(let r=0;r<6;r++)for(let c=0;c<5;c++)a.push([c/5,r/6,.2,1/6]);return a;})()},
+  // Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 30 PHOTOS — additional layouts Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+  {n:30,name:'6×5 Vertical',id:'g65',cells:(()=>{const a=[];for(let r=0;r<6;r++)for(let c=0;c<5;c++)a.push([c/5,r/6,.2,1/6]);return a;})()},
   {n:30,name:'30 Mosaic',id:'mosaic_30',cells:(()=>{
     const a=[];
     for(let r=0;r<5;r++)a.push([0,r/5,.25,.2]);
@@ -764,13 +764,13 @@ const SHAPE_TEMPLATES=[
 
   // Ã¢â€â‚¬Ã¢â€â‚¬ More creative layouts (round 2) Ã¢â€â‚¬Ã¢â€â‚¬
   // Pinwheel: 4 triangle blades, each in one quadrant, oriented for rotational
-  // symmetry Ã¢â‚¬â€ together they look like a turning pinwheel with X-shaped gaps.
+  // symmetry — together they look like a turning pinwheel with X-shaped gaps.
   {name:'Pinwheel',id:'sh_pinwheel',icon:'Ã°Å¸Å’â‚¬',
    cells:[{x:.5,y:0,w:.5,h:.5,shape:'pinTR'},
           {x:.5,y:.5,w:.5,h:.5,shape:'pinBR'},
           {x:0,y:.5,w:.5,h:.5,shape:'pinBL'},
           {x:0,y:0,w:.5,h:.5,shape:'pinTL'}]},
-  // 2Ãƒâ€”2 diamond grid Ã¢â‚¬â€ four diamond cells arranged as a square of rhombi.
+  // 2×2 diamond grid — four diamond cells arranged as a square of rhombi.
   {name:'Diamond Grid',id:'sh_diamondgrid',icon:'Ã¢â€”â€¡Ã¢â€”â€¡',
    cells:[{x:.02,y:.02,w:.46,h:.46,shape:'diamond'},
           {x:.52,y:.02,w:.46,h:.46,shape:'diamond'},
@@ -781,21 +781,21 @@ const SHAPE_TEMPLATES=[
    cells:[{x:.04,y:.06,w:.92,h:.27,shape:'rect'},
           {x:.04,y:.365,w:.92,h:.27,shape:'rect'},
           {x:.04,y:.67,w:.92,h:.27,shape:'rect'}]},
-  // Magazine spread Ã¢â‚¬â€ one feature image on top, four thumbnails below.
+  // Magazine spread — one feature image on top, four thumbnails below.
   {name:'Magazine',id:'sh_magazine',icon:'Ã°Å¸â€œÂ°',
    cells:[{x:.02,y:.02,w:.96,h:.62,shape:'rect'},
           {x:.02,y:.66,w:.235,h:.32,shape:'rect'},
           {x:.265,y:.66,w:.235,h:.32,shape:'rect'},
           {x:.51,y:.66,w:.235,h:.32,shape:'rect'},
           {x:.755,y:.66,w:.225,h:.32,shape:'rect'}]},
-  // Plus / cross arrangement Ã¢â‚¬â€ 5 squares in a + shape with empty corners.
+  // Plus / cross arrangement — 5 squares in a + shape with empty corners.
   {name:'Plus Cross',id:'sh_pluscross',icon:'Ã¢Å¾â€¢',
    cells:[{x:.34,y:.02,w:.32,h:.31,shape:'rect'},
           {x:.02,y:.34,w:.31,h:.32,shape:'rect'},
           {x:.34,y:.34,w:.32,h:.32,shape:'rect'},
           {x:.67,y:.34,w:.31,h:.32,shape:'rect'},
           {x:.34,y:.67,w:.32,h:.31,shape:'rect'}]},
-  // 3x3 tic-tac-toe grid Ã¢â‚¬â€ nine equal squares with thin gaps for a clean
+  // 3x3 tic-tac-toe grid — nine equal squares with thin gaps for a clean
   // gallery wall look.
   {name:'Tic-Tac-Toe',id:'sh_ttt',icon:'Ã¢Å’â€”',
    cells:[{x:.02,y:.02,w:.32,h:.32,shape:'rect'},{x:.34,y:.02,w:.32,h:.32,shape:'rect'},{x:.66,y:.02,w:.32,h:.32,shape:'rect'},
@@ -841,11 +841,11 @@ const SV={
   sparkle:`<path d="M13,2 L14.5,10 L22,13 L14.5,16 L13,24 L11.5,16 L4,13 L11.5,10 Z" fill="currentColor"/>`,
 };
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-// OCC_TEMPLATES Ã¢â‚¬â€ lazy-loaded from /static/js/occasion-templates.js
+// ══════════════════════════════════════════════════════════════════
+// OCC_TEMPLATES — lazy-loaded from /static/js/occasion-templates.js
 // The array is ~2000 lines and only needed when the user opens the Occasions
 // tab. Starts as null so we can detect "not loaded yet" and trigger the fetch.
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════════════════════════
 let OCC_TEMPLATES=window.OCC_TEMPLATES||null;
 let _occLoadingPromise=null;
 function loadOccTemplates(){
@@ -1493,9 +1493,9 @@ function drawBareBranch(ctx,cx,cy,size,angle,col){
   ctx.restore();
 }
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-// PREMIUM HELPERS v2 Ã¢â‚¬â€ editorial / art-deco / painterly
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ═════════════════════════════════════════════════════════════
+// PREMIUM HELPERS v2 — editorial / art-deco / painterly
+// ═════════════════════════════════════════════════════════════
 
 // 1. Curved text along an arc (for wedding/anniversary arched headings)
 // Pass radius>0 for convex arc (text curves upward), radius<0 for concave
@@ -1699,9 +1699,9 @@ function drawVignette(ctx,W,H,strength,col){
   ctx.save();ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.restore();
 }
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-// PREMIUM HELPERS v3 Ã¢â‚¬â€ style-specific (editorial / wabi-sabi / deco / nouveau / med / riso / scandi)
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ═════════════════════════════════════════════════════════════
+// PREMIUM HELPERS v3 — style-specific (editorial / wabi-sabi / deco / nouveau / med / riso / scandi)
+// ═════════════════════════════════════════════════════════════
 
 // 13. Grainy blur atmospheric background (2026 "grainy blur" aesthetic)
 function drawGrainyBlur(ctx,W,H,col1,col2,grainOp,seed){
@@ -1897,9 +1897,9 @@ function drawPressedFlower(ctx,cx,cy,size,petals,col){
   ctx.restore();
 }
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-// 8 STYLE PALETTES Ã¢â‚¬â€ research-driven, 2026 direction
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ═════════════════════════════════════════════════════════════
+// 8 STYLE PALETTES — research-driven, 2026 direction
+// ═════════════════════════════════════════════════════════════
 const STYLE_PALETTES={
   editorial_minimal:{bg1:'#fafaf7',bg2:'#f0efea',accent:'#1a1a1a',rule:'#b8a98a',soft:'#8a8578'},
   wabi_sabi:        {bg1:'#f3ede2',bg2:'#e8ddc8',accent:'#3d362c',rule:'#8a7866',soft:'#9a8a78'},
@@ -2012,16 +2012,16 @@ function buildOccCategoryPills(){
 
 function buildOccTemplateGrid(){
   const g=document.getElementById('occ-template-grid');g.innerHTML='';
-  // Templates are lazy-loaded Ã¢â‚¬â€ show a loading state and trigger fetch if needed.
+  // Templates are lazy-loaded — show a loading state and trigger fetch if needed.
   if(!OCC_TEMPLATES){
-    g.innerHTML=`<div style="grid-column:1/-1;padding:24px;text-align:center;color:var(--text-muted);font-size:12px"><i class="fa-solid fa-spinner fa-spin" style="font-size:18px;margin-bottom:8px;display:block"></i>Loading occasion templatesÃ¢â‚¬Â¦</div>`;
+    g.innerHTML=`<div style="grid-column:1/-1;padding:24px;text-align:center;color:var(--text-muted);font-size:12px"><i class="fa-solid fa-spinner fa-spin" style="font-size:18px;margin-bottom:8px;display:block"></i>Loading occasion templates…</div>`;
     loadOccTemplates().then(()=>buildOccTemplateGrid()).catch(()=>{
       g.innerHTML=`<div style="grid-column:1/-1;padding:20px;text-align:center;color:var(--danger);font-size:12px">Couldn't load templates. Refresh the page to try again.</div>`;
     });
     return;
   }
   // Templates flagged with cat:'any' (the blank starter) always show first regardless
-  // of which category pill is active Ã¢â‚¬â€ they're cross-category starting points.
+  // of which category pill is active — they're cross-category starting points.
   const alwaysShown=OCC_TEMPLATES.filter(t=>t.cat==='any');
   const categoryShown=activeOccCat==='all'
     ?OCC_TEMPLATES.filter(t=>t.cat!=='any')
@@ -2116,7 +2116,7 @@ function drawRichOccPreview(canvas,t,W,H){
       ctx.fill();
       ctx.shadowColor='transparent';
     }
-    // Photo placeholder gradient Ã¢â‚¬â€ clipped to the shape silhouette so circles look
+    // Photo placeholder gradient — clipped to the shape silhouette so circles look
     // like circles, hearts look like hearts, etc.
     const [c1,c2]=PLACEHOLDER_GRADIENTS[i%PLACEHOLDER_GRADIENTS.length];
     const g=ctx.createLinearGradient(-pw/2,-ph/2,pw/2,ph/2);
@@ -2151,7 +2151,7 @@ function applyRichOccTemplate(t,card,syncCategory){
       const occBtn=Array.from(document.querySelectorAll('.stab')).find(b=>(b.getAttribute('onclick')||'').indexOf('occasions')!==-1);
       if(occBtn)switchTab('occasions',occBtn);
     }
-    // Skip 'any' (the blank starter) Ã¢â‚¬â€ it's cross-category and shouldn't pin the filter.
+    // Skip 'any' (the blank starter) — it's cross-category and shouldn't pin the filter.
     if(t.cat&&t.cat!=='any'&&t.cat!==activeOccCat){
       activeOccCat=t.cat;
       document.querySelectorAll('.occ-pill').forEach(p=>{
@@ -2161,12 +2161,12 @@ function applyRichOccTemplate(t,card,syncCategory){
     }
   }
 
-  // This template renders the full canvas as artwork Ã¢â‚¬â€ use a single-cell "frame"
+  // This template renders the full canvas as artwork — use a single-cell "frame"
   // We draw the themed bg onto the collage canvas via a special render mode
   currentTemplate={id:t.id,name:t.name,cells:[[0,0,1,1]],occTemplate:t};
   bgColor='#ffffff';bgImageDataUrl=null;currentPattern=null;
 
-  // Suppress per-mutation history while we build the template Ã¢â‚¬â€ final saveHistory
+  // Suppress per-mutation history while we build the template — final saveHistory
   // at the bottom records the whole thing as one undo step.
   _suppressHistory=true;
 
@@ -2182,7 +2182,7 @@ function applyRichOccTemplate(t,card,syncCategory){
   offscreen.width=canvasW;offscreen.height=canvasH;
   const octx=offscreen.getContext('2d');
   t.drawBg(octx,canvasW,canvasH);
-  // NOTE: drawTitle is NOT called here Ã¢â‚¬â€ title text is placed as movable DOM elements instead
+  // NOTE: drawTitle is NOT called here — title text is placed as movable DOM elements instead
   // This prevents overlap between canvas-painted text and DOM text layers
 
   // Place photo frames as real draggable cells. Each frame may include a `shape` key
@@ -2248,7 +2248,7 @@ function applyRichOccTemplate(t,card,syncCategory){
   // Reset the edited flag AFTER the initial snapshot so the freshly-loaded template
   // doesn't trigger the "switch template?" dialog on the very next click.
   _userHasEdited=false;
-  showToast(`"${t.name}" template ready Ã¢â‚¬â€ add your photos!`,'success');
+  showToast(`"${t.name}" template ready — add your photos!`,'success');
   hideMobNav();
 }
 
@@ -2272,7 +2272,7 @@ function createOccCell(geom){
   cellEl.style.cursor='move';
   cellEl.dataset.rot=String(geom.angle||0);
   if(isRect){
-    // Polaroid look via CSS Ã¢â‚¬â€ white frame + shadow (moves with cell).
+    // Polaroid look via CSS — white frame + shadow (moves with cell).
     cellEl.style.background='#fff';
     cellEl.style.padding='6px 6px 18px 6px';
     cellEl.style.boxSizing='border-box';
@@ -2319,7 +2319,7 @@ function createOccCell(geom){
 
   const resizeHandle=document.createElement('div');
   resizeHandle.className='ce-resize';
-  // Don't force display:block here Ã¢â‚¬â€ let the CSS show it only on :hover / .selected.
+  // Don't force display:block here — let the CSS show it only on :hover / .selected.
   attachResizeHandler(resizeHandle,cellEl,false);
   cellEl.appendChild(resizeHandle);
 
@@ -2328,7 +2328,7 @@ function createOccCell(geom){
   attachRotateHandler(rotHandle,cellEl);
   cellEl.appendChild(rotHandle);
 
-  // Drag Ã¢â‚¬â€ closures capture cellEl + the new index `i`. When the cell being dragged
+  // Drag — closures capture cellEl + the new index `i`. When the cell being dragged
   // is part of a multi-selection, every other DOM-selected element + the active
   // Fabric object/group rides along by the same delta so the user can move groups.
   let cellDragActive=false,cdStartX=0,cdStartY=0,cdStartL=0,cdStartT=0,cdMoved=false;
@@ -2336,7 +2336,7 @@ function createOccCell(geom){
   let groupStarts=[];
   const captureGroupStarts=()=>{
     groupStarts=[];
-    if(!multiSelectedDOM.has(cellEl))return; // not part of a group Ã¢â€ â€™ solo drag
+    if(!multiSelectedDOM.has(cellEl))return; // not part of a group → solo drag
     multiSelectedDOM.forEach(el=>{
       if(el===cellEl||!el.style)return;
       groupStarts.push({type:'dom',el,sl:parseFloat(el.style.left)||0,st:parseFloat(el.style.top)||0});
@@ -2351,7 +2351,7 @@ function createOccCell(geom){
   // adopt the gesture: select the Fabric object AND drive its drag from the cell's
   // own touch/mouse listeners. This is necessary on mobile because Fabric's
   // upper-canvas pointer-events isn't pre-armed for touch, so the Fabric layer
-  // never receives the touch Ã¢â‚¬â€ the cell does. Driving the drag from here lets
+  // never receives the touch — the cell does. Driving the drag from here lets
   // a single touch both select and move the text.
   let fabricDrag=null; // {obj, startX, startY, sl, st, moved}
   const startFabricGesture=(clientX,clientY)=>{
@@ -2386,7 +2386,7 @@ function createOccCell(geom){
     e.stopPropagation();
   },{passive:true});
   const cellMouseMove=e=>{
-    // Fabric drag adopted from the cell's listener Ã¢â‚¬â€ translate the active Fabric
+    // Fabric drag adopted from the cell's listener — translate the active Fabric
     // object instead of the cell.
     if(fabricDrag){
       const cvRect=cv.getBoundingClientRect();
@@ -2436,7 +2436,7 @@ function createOccCell(geom){
   document.addEventListener('touchend',cellMouseUp,{passive:true});
 
   // Look up the cell's current index by element reference rather than the closure-
-  // captured `i` Ã¢â‚¬â€ that way handlers stay correct after a delete shifts the array.
+  // captured `i` — that way handlers stay correct after a delete shifts the array.
   const liveIdx=()=>cells.findIndex(c=>c.el===cellEl);
   cellEl.onclick=e=>{
     if(e.target.closest('.canvas-elem,.canvas-text-pro,.ce-resize,.ce-rotate'))return;
@@ -2498,9 +2498,9 @@ function duplicateOccCell(srcIdx){
 }
 
 // Show a styled confirm dialog. Calls onConfirm() when user clicks the primary button.
-//   opts.title    Ã¢â‚¬â€ heading text (default "Confirm")
-//   opts.message  Ã¢â‚¬â€ body text
-//   opts.icon     Ã¢â‚¬â€ Font Awesome class string (default fa-trash-can, danger color)
+//   opts.title    — heading text (default "Confirm")
+//   opts.message  — body text
+//   opts.icon     — Font Awesome class string (default fa-trash-can, danger color)
 // Returns true if the user has done meaningful editing since the current template
 // was loaded. Templates load under _suppressHistory so the flag stays false until a
 // real user action (drag, resize, photo upload, text edit, etc.) triggers
@@ -2522,8 +2522,8 @@ function confirmTemplateSwitch(applyFn){
   },applyFn);
 }
 
-//   opts.confirmLabel  Ã¢â‚¬â€ primary button label (default "Confirm")
-//   opts.danger   Ã¢â‚¬â€ true Ã¢â€ â€™ red primary button (default true)
+//   opts.confirmLabel  — primary button label (default "Confirm")
+//   opts.danger   — true → red primary button (default true)
 function openConfirmDialog(opts,onConfirm){
   const overlay=document.getElementById('generic-confirm-modal');
   if(!overlay){if(window.confirm(opts.message||'Are you sure?'))onConfirm&&onConfirm();return;}
@@ -2541,9 +2541,9 @@ function openConfirmDialog(opts,onConfirm){
   overlay.classList.add('open');
 }
 
-// Ãƒâ€” button on an occasion cell: if the cell holds a photo, just remove the photo
+// × button on an occasion cell: if the cell holds a photo, just remove the photo
 // (matches the prior behavior). If the cell is empty, ask whether to delete the whole
-// card Ã¢â‚¬â€ empty cards are a leftover of the template, and the user usually wants to
+// card — empty cards are a leftover of the template, and the user usually wants to
 // reclaim that real estate. Refuses to delete the last remaining cell.
 function removeOccCellPhotoOrDelete(idx){
   const cd=cells[idx];
@@ -2570,7 +2570,7 @@ function updateRightPanelGlobalActions(){
   if(!host)return;
   const isOcc=!!(currentTemplate&&currentTemplate.occTemplate);
   if(isOcc){
-    // Shape buttons Ã¢â‚¬â€ clicking each adds a new card cropped to that shape. Photos
+    // Shape buttons — clicking each adds a new card cropped to that shape. Photos
     // uploaded into the card get clipped to the silhouette automatically.
     const shapeBtns=CARD_SHAPES.map(s=>
       `<button class="rp-shape-btn" title="Add ${s.name} card" onclick="addOccCell('${s.id}')"><i class="fa-solid ${s.faIcon}"></i></button>`
@@ -2603,7 +2603,7 @@ function addOccCell(shape){
     w=Math.round(canvasW*.32);
     h=Math.round(canvasH*.32);
   }
-  // Centre the new card, then nudge by 20px Ãƒâ€” number of existing polaroids so multiple
+  // Centre the new card, then nudge by 20px × number of existing polaroids so multiple
   // adds don't perfectly overlap.
   // Heart / circle / star / etc. read better with 1:1 aspect; rect keeps the
   // averaged source aspect so it slots into existing layouts cleanly.
@@ -2682,10 +2682,10 @@ function addCanvasElemAt(opts,x,y){
 
 // Helper: addProText at specific coords. Routes to the Fabric text layer. The `align`
 // argument controls origin the same way the old DOM version did:
-//   'center' Ã¢â€ â€™ horizontally centered on x
-//   'right'  Ã¢â€ â€™ right-edge at x
-//   default  Ã¢â€ â€™ left-edge at x
-// Used by templates which add many text layers in one pass Ã¢â‚¬â€ explicitly disables
+//   'center' → horizontally centered on x
+//   'right'  → right-edge at x
+//   default  → left-edge at x
+// Used by templates which add many text layers in one pass — explicitly disables
 // auto-selection so the canvas isn't covered in selection handles after loading.
 function addProTextAt(text,styles,x,y,align,angle){
   return addFabricTextAt(text,styles,x,y,align,{autoSelect:false,angle:angle||0});
@@ -2967,12 +2967,12 @@ function applyTemplate(t,card){
   _suppressHistory=false;
   saveHistory();
   _userHasEdited=false;
-  showToast(`"${t.name}" Ã¢â‚¬â€ ${t.cells.length} cells`,'success');
+  showToast(`"${t.name}" — ${t.cells.length} cells`,'success');
   hideMobNav();
 }
 
 // RENDER
-// Central helper Ã¢â‚¬â€ always call this to apply background, never set style.background directly
+// Central helper — always call this to apply background, never set style.background directly
 function applyBgToCanvas(){
   const cv=document.getElementById('collage-canvas');
   if(bgImageDataUrl){
@@ -2984,7 +2984,7 @@ function applyBgToCanvas(){
   } else if(currentPattern){
     // pattern (already set by applyPattern, just leave it)
   } else {
-    // solid color or gradient Ã¢â‚¬â€ use background shorthand, clear backgroundImage first
+    // solid color or gradient — use background shorthand, clear backgroundImage first
     cv.style.backgroundImage='';
     cv.style.backgroundSize='';
     cv.style.backgroundPosition='';
@@ -3033,7 +3033,7 @@ function getClipPathCSS(shape, w, h){
       return 'polygon(0% 20%, 65% 20%, 65% 0%, 100% 50%, 65% 100%, 65% 80%, 0% 80%)';
     case 'shield':
       return 'polygon(10% 0%, 90% 0%, 100% 5%, 100% 45%, 85% 70%, 65% 88%, 50% 100%, 35% 88%, 15% 70%, 0% 45%, 0% 5%)';
-    // V chevron pointing down Ã¢â‚¬â€ outer V outline with inner V cut so the photo
+    // V chevron pointing down — outer V outline with inner V cut so the photo
     // forms a thick "V" letter shape.
     case 'vshape':
       return 'polygon(0% 0%, 30% 0%, 50% 50%, 70% 0%, 100% 0%, 100% 25%, 55% 100%, 45% 100%, 0% 25%)';
@@ -3053,7 +3053,7 @@ function getClipPathCSS(shape, w, h){
     case 'hexS4': return 'polygon(100% 0%, 100% 100%, 0% 50%)';
     case 'hexS5': return 'polygon(100% 50%, 0% 100%, 0% 0%)';
     case 'hexS6': return 'polygon(100% 100%, 0% 50%, 100% 0%)';
-    // Pinwheel blades Ã¢â‚¬â€ each is a right triangle with the right angle at the
+    // Pinwheel blades — each is a right triangle with the right angle at the
     // outer corner of its quadrant + hypotenuse from canvas centre to the
     // adjacent edge midpoint. Together the 4 blades look like spinning fan
     // blades with a 4-armed empty cross between them.
@@ -3062,7 +3062,7 @@ function getClipPathCSS(shape, w, h){
     case 'pinBL': return 'polygon(100% 0%, 0% 100%, 0% 0%)';
     case 'pinTL': return 'polygon(100% 100%, 0% 0%, 100% 0%)';
     case 'rect':
-      return null; // explicit no-clip Ã¢â‚¬â€ same as default
+      return null; // explicit no-clip — same as default
     default:
       return null;
   }
@@ -3086,7 +3086,7 @@ function renderShapeCollage(){
     el.style.borderRadius='0'; // clip-path handles shaping
     // Tag the DOM cell with its shape so the Canvas-2D exporter can re-apply the
     // same clip when rasterising. Without this the export sees `dataset.shape`
-    // as undefined Ã¢â€ â€™ falls back to `'rect'` Ã¢â€ â€™ photos export as rectangles.
+    // as undefined → falls back to `'rect'` → photos export as rectangles.
     el.dataset.shape=sc.shape||'rect';
 
     // Inner wrapper that owns the clip-path so the photo + placeholder are
@@ -3374,7 +3374,7 @@ function updateRightPanel(idx){
       </div>
     </div>
     <div class="prop-row" style="margin-top:16px"><button class="btn btn-ghost" style="width:100%;font-size:12px;color:var(--danger);border-color:var(--danger)" onclick="removeCellPhoto(${idx})"><i class="fa-solid fa-xmark"></i> Remove Photo</button></div>`
-    :`<div style="font-size:11px;color:var(--text-light);margin-top:4px;line-height:1.6">Empty cell Ã¢â‚¬â€ click Upload or drag a photo from the Photos tab.</div>`}
+    :`<div style="font-size:11px;color:var(--text-light);margin-top:4px;line-height:1.6">Empty cell — click Upload or drag a photo from the Photos tab.</div>`}
     ${cells[idx]?.el?.classList.contains('occ-polaroid')?`<div class="prop-row" style="margin-top:8px"><button class="btn btn-ghost" style="width:100%;font-size:12px;color:var(--danger);border-color:var(--danger);background:rgba(224,82,82,.06)" onclick="deleteOccCell(${idx})"><i class="fa-solid fa-trash"></i> Delete Card</button></div>`:''}`;
 }
 
@@ -3519,7 +3519,7 @@ function dropOnCell(e,idx){
       return;
     }
   }
-  // 2. Internal drag from photo thumbnail Ã¢â‚¬â€ already in photos, just place it
+  // 2. Internal drag from photo thumbnail — already in photos, just place it
   const pi=e.dataTransfer.getData('photoIndex');
   if(pi!==''){
     setPhotoInCell(idx,photos[parseInt(pi)].data,cells[idx]);
@@ -3581,7 +3581,7 @@ function applyShadow(){
 
 // CANVAS SIZE
 function setCanvasSize(w,h,el){
-  // Capture old dimensions BEFORE we mutate canvasW/H Ã¢â‚¬â€ needed to proportionally
+  // Capture old dimensions BEFORE we mutate canvasW/H — needed to proportionally
   // rescale anything positioned in absolute pixels (occ-template cells, Fabric text).
   const oldW=canvasW, oldH=canvasH;
   const sx=w/oldW, sy=h/oldH;
@@ -3589,9 +3589,9 @@ function setCanvasSize(w,h,el){
   const canvas=document.getElementById('collage-canvas');
   canvas.style.width=w+'px';canvas.style.height=h+'px';
   resizeFabricLayer(w,h);
-  document.getElementById('size-badge').textContent=`${w} Ãƒâ€” ${h}`;
+  document.getElementById('size-badge').textContent=`${w} × ${h}`;
   // Remove active from every size/social pill, then mark every pill (in any tab)
-  // whose onclick targets this exact w,h Ã¢â‚¬â€ keeps the two pill rows in sync.
+  // whose onclick targets this exact w,h — keeps the two pill rows in sync.
   document.querySelectorAll('.size-pill,.social-pill').forEach(p=>{
     p.classList.remove('active');
     const oc=p.getAttribute('onclick')||'';
@@ -3601,7 +3601,7 @@ function setCanvasSize(w,h,el){
 
   const isOcc=!!(currentTemplate&&currentTemplate.occTemplate);
   if(isOcc){
-    // Occasion templates have draggable polaroid cells in absolute pixels Ã¢â‚¬â€ re-render
+    // Occasion templates have draggable polaroid cells in absolute pixels — re-render
     // the themed background at the new dimensions and rescale every cell so its
     // relative position/size on the canvas stays the same.
     const cv=document.getElementById('collage-canvas');
@@ -3615,7 +3615,7 @@ function setCanvasSize(w,h,el){
       cv.style.backgroundSize='cover';
       cv.style.backgroundPosition='center';
     }catch(e){}
-    // Shapes that need to stay 1:1 (heart, star, circle, hexagon, diamond) Ã¢â‚¬â€ DON'T
+    // Shapes that need to stay 1:1 (heart, star, circle, hexagon, diamond) — DON'T
     // touch their width/height across aspect changes. Using Math.min(sx,sy) (or any
     // one-way ratio) doesn't reverse cleanly across multiple aspect swaps and the
     // shape would shrink toward zero each round-trip. Positions still scale so the
@@ -3635,7 +3635,7 @@ function setCanvasSize(w,h,el){
       // the canvas edge ends up bunched toward one side after the canvas grows
       // (because the cell's width didn't grow with sx). Center-anchored scale
       // keeps each cell's visual centre at the same proportional spot, so a
-      // 2Ãƒâ€”4 grid of locked circles stays evenly distributed when the aspect
+      // 2×4 grid of locked circles stays evenly distributed when the aspect
       // changes.
       const cx=l+cw/2, cy=t+ch/2;
       const newCw=locked?cw:cw*sx;
@@ -3649,9 +3649,9 @@ function setCanvasSize(w,h,el){
       }
     });
     // Rescale Fabric text positions proportionally to keep them in the same relative
-    // spot on the canvas. Font size is intentionally NOT rescaled Ã¢â‚¬â€ using Math.min(sx,sy)
+    // spot on the canvas. Font size is intentionally NOT rescaled — using Math.min(sx,sy)
     // (or any one-way ratio) doesn't reverse cleanly across multiple aspect changes
-    // (1:1 Ã¢â€ â€™ 16:9 Ã¢â€ â€™ 1:1 ends up smaller every round-trip), so the text would shrink
+    // (1:1 → 16:9 → 1:1 ends up smaller every round-trip), so the text would shrink
     // toward zero. Better to keep the user's chosen font size and let them adjust
     // manually if a new aspect needs a different scale.
     if(fabricCanvas){
@@ -3669,7 +3669,7 @@ function setCanvasSize(w,h,el){
   }else if(currentTemplate){
     // Shape templates (Arrow, Heart, V, Hex Slices, etc.) own per-cell clip-paths
     // sized in pixels. renderCollage() builds plain rectangular cells, which is
-    // why shapes were collapsing to rectangles after aspect changes Ã¢â‚¬â€ we need
+    // why shapes were collapsing to rectangles after aspect changes — we need
     // renderShapeCollage() to rebuild each cell with the right clip at the new
     // canvas dimensions. Existing photos are preserved by cellIndex inside
     // renderShapeCollage(), so the user's uploads stay put.
@@ -3678,7 +3678,7 @@ function setCanvasSize(w,h,el){
   // Always fit to screen after size change
   setTimeout(resetZoom,50);
   // Capture this aspect change in history so undo/redo restore the previous size.
-  // Skip the initial 800x800 default (oldW/H equal new Ã¢â‚¬â€ no real change).
+  // Skip the initial 800x800 default (oldW/H equal new — no real change).
   if(oldW!==w||oldH!==h){
     if(typeof saveHistory==='function')saveHistory();
   }
@@ -3686,7 +3686,7 @@ function setCanvasSize(w,h,el){
 
 function updateCellUIScale(){
   // Keep buttons and placeholder visually consistent regardless of zoom or canvas size
-  // sizeFactor: very gentle Ã¢â‚¬â€ barely grows for larger canvases, capped tight
+  // sizeFactor: very gentle — barely grows for larger canvases, capped tight
   const baseSize=800;
   const sizeFactor=Math.min(1.15, Math.max(0.85, Math.sqrt(canvasW/baseSize)));
   const uiScale=Math.min(2.0, (1/zoom)*sizeFactor);
@@ -3725,7 +3725,7 @@ function placeSticker(emoji){
 
 // TEXT
 function showAddText(){
-  // Use pro text system Ã¢â‚¬â€ add a default heading text layer
+  // Use pro text system — add a default heading text layer
   addProText('Your Text Here', TEXT_STYLE_PRESETS[0].style);
   switchTab('text', document.querySelector('.stab[onclick*=\'text\']'));
 }
@@ -3781,14 +3781,14 @@ function makeDraggable(el){
   });
 }
 
-// HISTORY Ã¢â‚¬â€ full snapshot of all state
-// Set true while restoreState is rebuilding the canvas Ã¢â‚¬â€ Fabric mutation events
+// HISTORY — full snapshot of all state
+// Set true while restoreState is rebuilding the canvas — Fabric mutation events
 // (object:added/removed/modified, text:changed) and cell handlers will fire during
 // restore and would otherwise create infinite loops of new history entries.
 let _suppressHistory=false;
 // Tracks whether the user has interacted with the canvas since the last template
 // load. Used to gate the "switch template?" dialog so it doesn't fire on every
-// template click Ã¢â‚¬â€ only when there's real work that would be lost.
+// template click — only when there's real work that would be lost.
 let _userHasEdited=false;
 
 function saveHistory(){
@@ -3800,7 +3800,7 @@ function saveHistory(){
   // Capture all canvas elements (shapes, text-pro) as HTML snapshots
   const elemsHTML=[];
   cv.querySelectorAll('.canvas-elem,.canvas-text-pro').forEach(el=>{
-    // Clone without event handlers Ã¢â‚¬â€ just the visual HTML
+    // Clone without event handlers — just the visual HTML
     const clone=el.cloneNode(true);
     // Remove control buttons from snapshot (they get re-added on restore)
     clone.querySelectorAll('.ce-del,.txt-del2,.ce-resize,.ce-rotate').forEach(b=>b.remove());
@@ -3819,7 +3819,7 @@ function saveHistory(){
     });
   });
 
-  // Per-cell geometry Ã¢â‚¬â€ needed for occasion templates because the user can move /
+  // Per-cell geometry — needed for occasion templates because the user can move /
   // resize / rotate / add / delete cells, and renderCollage() can't reproduce those
   // changes from the immutable template definition.
   const cellGeoms=cells.map(c=>{
@@ -3837,7 +3837,7 @@ function saveHistory(){
     };
   });
 
-  // Fabric text layer state Ã¢â‚¬â€ toJSON serializes every text object including any
+  // Fabric text layer state — toJSON serializes every text object including any
   // custom props we added (text-transform stash, original-text stash).
   let fabricJSON=null;
   if(fabricCanvas){
@@ -3898,7 +3898,7 @@ function restoreState(s){
     cv.style.width=canvasW+'px';cv.style.height=canvasH+'px';
     if(typeof resizeFabricLayer==='function')resizeFabricLayer(canvasW,canvasH);
     const sizeBadge=document.getElementById('size-badge');
-    if(sizeBadge)sizeBadge.textContent=`${canvasW} Ãƒâ€” ${canvasH}`;
+    if(sizeBadge)sizeBadge.textContent=`${canvasW} × ${canvasH}`;
     // Sync size-pill active state to the restored dimensions.
     document.querySelectorAll('.size-pill,.social-pill').forEach(p=>{
       p.classList.remove('active');
@@ -4066,7 +4066,7 @@ function doClearCanvas(){
   saveHistory();showToast('Canvas cleared');
 }
 
-// EXPORT Ã¢â‚¬â€ pure Canvas 2D, no html2canvas needed
+// EXPORT — pure Canvas 2D, no html2canvas needed
 async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-collage'){
   if(!currentTemplate){showToast('No collage to export!','error');return;}
 
@@ -4081,7 +4081,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
     step.textContent=label;
   }
   overlay.classList.add('show');
-  setProgress(0,'Preparing canvasÃ¢â‚¬Â¦');
+  setProgress(0,'Preparing canvas…');
   await new Promise(r=>setTimeout(r,30)); // allow repaint
 
   try{
@@ -4092,7 +4092,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
     ctx.scale(scale2,scale2);
 
     // Ã¢â€â‚¬Ã¢â€â‚¬ Background Ã¢â€â‚¬Ã¢â€â‚¬
-    setProgress(5,'Drawing backgroundÃ¢â‚¬Â¦');
+    setProgress(5,'Drawing background…');
     await new Promise(r=>setTimeout(r,10));
     if(bgImageDataUrl){
       await new Promise(resolve=>{
@@ -4126,13 +4126,13 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
     }
 
     // Ã¢â€â‚¬Ã¢â€â‚¬ Draw each cell Ã¢â€â‚¬Ã¢â€â‚¬
-    setProgress(15,'Rendering photosÃ¢â‚¬Â¦');
+    setProgress(15,'Rendering photos…');
     await new Promise(r=>setTimeout(r,10));
     const totalCells=cells.length||1;
     let cellIdx=0;
     for(const cd of cells){
       cellIdx++;
-      setProgress(15+Math.round((cellIdx/totalCells)*35),`Rendering photo ${cellIdx} of ${totalCells}Ã¢â‚¬Â¦`);
+      setProgress(15+Math.round((cellIdx/totalCells)*35),`Rendering photo ${cellIdx} of ${totalCells}…`);
       if(cellIdx%2===0)await new Promise(r=>setTimeout(r,0));
       const el=cd.el;
       const x=parseFloat(el.style.left);
@@ -4158,7 +4158,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
         const cx=x+w/2, cy=y+h/2;
         ctx.translate(cx,cy);ctx.rotate(rotDeg*Math.PI/180);ctx.translate(-w/2,-h/2);
 
-        // Draw polaroid white card with shadow (skipped for shape cells Ã¢â‚¬â€ shape itself is the card)
+        // Draw polaroid white card with shadow (skipped for shape cells — shape itself is the card)
         if(isPolaroid&&!useShapeR){
           ctx.shadowColor='rgba(0,0,0,.28)';ctx.shadowBlur=16;ctx.shadowOffsetX=3;ctx.shadowOffsetY=5;
           ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);
@@ -4293,7 +4293,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
     }
 
     // Ã¢â€â‚¬Ã¢â€â‚¬ Draw text & sticker overlays Ã¢â€â‚¬Ã¢â€â‚¬
-    setProgress(52,'Rendering text layersÃ¢â‚¬Â¦');
+    setProgress(52,'Rendering text layers…');
     await new Promise(r=>setTimeout(r,10));
     const textEls=document.getElementById('collage-canvas').querySelectorAll('.canvas-text');
     for(const tel of textEls){
@@ -4343,7 +4343,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
     }
 
     // Ã¢â€â‚¬Ã¢â€â‚¬ Draw pro text elements (.canvas-text-pro) Ã¢â€â‚¬Ã¢â€â‚¬
-    setProgress(65,'Rendering pro textÃ¢â‚¬Â¦');
+    setProgress(65,'Rendering pro text…');
     await new Promise(r=>setTimeout(r,10));
 
     // Ã¢â€â‚¬Ã¢â€â‚¬ FIX: Wait for all web fonts to be ready before drawing text Ã¢â€â‚¬Ã¢â€â‚¬
@@ -4493,7 +4493,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
       // Note: ctx.letterSpacing set for modern browsers as fallback; manual spacing used below for full compat
       try{ ctx.letterSpacing=ls+'px'; }catch(e){}
 
-      // Ã¢â€â‚¬Ã¢â€â‚¬ Text shadow Ã¢â‚¬â€ robust multi-shadow parser Ã¢â€â‚¬Ã¢â€â‚¬
+      // Ã¢â€â‚¬Ã¢â€â‚¬ Text shadow — robust multi-shadow parser Ã¢â€â‚¬Ã¢â€â‚¬
       // CSS default shadow color is currentColor (the text color), not arbitrary black.
       function parseShadows(shadowStr, color){
         if(!shadowStr||shadowStr==='none')return[];
@@ -4577,7 +4577,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
       const textOffsetX=padLeft;
       const textOffsetY=padTop;
 
-      // Per-line iteration helper Ã¢â‚¬â€ keeps alignment/positioning logic in one place.
+      // Per-line iteration helper — keeps alignment/positioning logic in one place.
       function forEachLine(cb){
         finalLines.forEach((lineStr,i)=>{
           const drawStr=tt==='uppercase'?lineStr.toUpperCase():tt==='lowercase'?lineStr.toLowerCase():lineStr;
@@ -4592,7 +4592,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
       function drawStrokePass(){
         if(!hasStroke)return;
         ctx.strokeStyle=strokeColor;
-        // Browser renders -webkit-text-stroke painted before fill Ã¢â‚¬â€ fill covers the inner half
+        // Browser renders -webkit-text-stroke painted before fill — fill covers the inner half
         // of the stroke. Canvas strokeText centers on the path the same way, so lineWidth=Npx
         // matches an N-px CSS text-stroke. (The old *2 multiplier was a workaround for an
         // earlier render order that has since been fixed.)
@@ -4626,7 +4626,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
       }
 
       // Render order matches the browser:
-      //   1. Shadows (reverse order Ã¢â‚¬â€ CSS spec: first listed is topmost)
+      //   1. Shadows (reverse order — CSS spec: first listed is topmost)
       //   2. Stroke (outline behind fill)
       //   3. Fill
       //   4. Decorations (underline / line-through)
@@ -4656,8 +4656,8 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
       ctx.restore();
     }
 
-    // Ã¢â€â‚¬Ã¢â€â‚¬ Draw canvas elements (.canvas-elem Ã¢â‚¬â€ shapes, emojis) Ã¢â€â‚¬Ã¢â€â‚¬
-    setProgress(80,'Rendering shapes & stickersÃ¢â‚¬Â¦');
+    // Ã¢â€â‚¬Ã¢â€â‚¬ Draw canvas elements (.canvas-elem — shapes, emojis) Ã¢â€â‚¬Ã¢â€â‚¬
+    setProgress(80,'Rendering shapes & stickers…');
     await new Promise(r=>setTimeout(r,10));
     const elemEls=document.getElementById('collage-canvas').querySelectorAll('.canvas-elem');
     for(const el of elemEls){
@@ -4682,7 +4682,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
       ctx.translate(-ew/2,-eh/2);
 
       if(spanEl&&!svgEl){
-        // Emoji/sticker Ã¢â‚¬â€ draw as text
+        // Emoji/sticker — draw as text
         const fs=parseFloat(spanEl.style.fontSize)||48;
         ctx.font=`${fs}px serif`;
         ctx.textAlign='center';
@@ -4709,7 +4709,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
           });
         }
       } else if(svgEl){
-        // SVG shape Ã¢â‚¬â€ render via Image
+        // SVG shape — render via Image
         const svgColor=svgEl.style.color||el.dataset.color||'#4956a5';
         const svgClone=svgEl.cloneNode(true);
         svgClone.setAttribute('width',ew);
@@ -4746,7 +4746,7 @@ async function downloadCollage(fmt='png', scale=2, quality=0.92, filename='my-co
     }
 
     // Ã¢â€â‚¬Ã¢â€â‚¬ Download Ã¢â€â‚¬Ã¢â€â‚¬
-    setProgress(92,'Encoding imageÃ¢â‚¬Â¦');
+    setProgress(92,'Encoding image…');
     await new Promise(r=>setTimeout(r,30));
     const mimeType=fmt==='jpg'?'image/jpeg':'image/png';
     const ext=fmt==='jpg'?'jpg':'png';
@@ -4781,14 +4781,14 @@ function roundedClip(ctx,x,y,w,h,r){
   ctx.closePath();ctx.clip();
 }
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-// CARD SHAPES Ã¢â‚¬â€ heart, star, circle, etc. for occasion-template cells.
+// ══════════════════════════════════════════════════════════════════
+// CARD SHAPES — heart, star, circle, etc. for occasion-template cells.
 // Each shape provides:
-//   id, name, faIcon Ã¢â‚¬â€ UI metadata
-//   clipPath Ã¢â‚¬â€ CSS clip-path for the live DOM cell
-//   drawPath(ctx,x,y,w,h) Ã¢â‚¬â€ adds a path on the export ctx (call ctx.beginPath first)
+//   id, name, faIcon — UI metadata
+//   clipPath — CSS clip-path for the live DOM cell
+//   drawPath(ctx,x,y,w,h) — adds a path on the export ctx (call ctx.beginPath first)
 // Polaroid shape (rect) is the default and uses the standard rect path.
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════════════════════════
 const CARD_SHAPES=[
   {id:'rect',name:'Rectangle',faIcon:'fa-square',
    clipPath:'',
@@ -4833,7 +4833,7 @@ const CARD_SHAPES=[
    drawPath:(ctx,x,y,w,h)=>{
      ctx.moveTo(x+w/2,y);ctx.lineTo(x+w,y+h/2);ctx.lineTo(x+w/2,y+h);ctx.lineTo(x,y+h/2);ctx.closePath();
    }},
-  // Organic blob Ã¢â‚¬â€ irregular 13-point polygon for the "fluid / liquid" 2026
+  // Organic blob — irregular 13-point polygon for the "fluid / liquid" 2026
   // aesthetic. Stretches with the cell so it doesn't need aspect-locking.
   {id:'blob',name:'Blob',faIcon:'fa-droplet',
    clipPath:'polygon(35% 5%, 60% 0%, 80% 12%, 95% 30%, 100% 55%, 92% 78%, 75% 95%, 50% 100%, 25% 92%, 8% 75%, 0% 55%, 5% 30%, 18% 12%)',
@@ -4848,7 +4848,7 @@ function getCardShape(id){return CARD_SHAPES.find(s=>s.id===id)||CARD_SHAPES[0];
 // Returns true on success so callers can fall back if the shape couldn't be
 // rendered. The two layered uses (shadow fill + clip) share this so they always
 // agree on the silhouette.
-//   1. Prefer a registered CARD_SHAPES entry Ã¢â‚¬â€ its drawPath is hand-tuned.
+//   1. Prefer a registered CARD_SHAPES entry — its drawPath is hand-tuned.
 //   2. Otherwise reuse getClipPathCSS so shape templates (triangle, arrow,
 //      shield, heart halves, vshape, xbands, hex slices) trace the identical
 //      silhouette in the export as in the live editor.
@@ -4916,7 +4916,7 @@ function shapeFill(ctx,shapeId,x,y,w,h){
 }
 
 // Inject SVG <clipPath> defs for shapes whose CSS clip-path can't scale on its own
-// (anything that needs cubic beziers Ã¢â‚¬â€ path() uses absolute coords). Runs once.
+// (anything that needs cubic beziers — path() uses absolute coords). Runs once.
 // `clipPathUnits="objectBoundingBox"` makes the path coords 0-1 percentages of the
 // element's bounding box, so the clip stretches to fit any cell size.
 let _shapeClipsInstalled=false;
@@ -4928,7 +4928,7 @@ function installShapeClipPaths(){
   svg.setAttribute('width','0');svg.setAttribute('height','0');
   svg.setAttribute('style','position:absolute;width:0;height:0;overflow:hidden');
   svg.setAttribute('aria-hidden','true');
-  // Heart path normalised to 0-1 coordinates (was 100Ãƒâ€”100, divide by 100).
+  // Heart path normalised to 0-1 coordinates (was 100×100, divide by 100).
   svg.innerHTML=`<defs><clipPath id="card-clip-heart" clipPathUnits="objectBoundingBox"><path d="M0.5,0.9 C0,0.55 0,0.15 0.25,0.15 C0.4,0.15 0.5,0.3 0.5,0.4 C0.5,0.3 0.6,0.15 0.75,0.15 C1,0.15 1,0.55 0.5,0.9 Z"/></clipPath></defs>`;
   document.body.appendChild(svg);
   _shapeClipsInstalled=true;
@@ -4954,10 +4954,10 @@ function calcObjectFit(fit,pos,iw,ih,cw,ch){
 
   // cover (default)
   if(imgRatio>cellRatio){
-    // image wider than cell Ã¢â€ â€™ crop sides
+    // image wider than cell → crop sides
     sh=ih; sw=ih*cellRatio;
   } else {
-    // image taller than cell Ã¢â€ â€™ crop top/bottom
+    // image taller than cell → crop top/bottom
     sw=iw; sh=iw/cellRatio;
   }
 
@@ -5011,7 +5011,7 @@ function deselect(){
   updateRightPanel(null);
 }
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ GLOBAL CANVAS DROP Ã¢â‚¬â€ drag image file from PC onto canvas Ã¢â€â‚¬Ã¢â€â‚¬
+// Ã¢â€â‚¬Ã¢â€â‚¬ GLOBAL CANVAS DROP — drag image file from PC onto canvas Ã¢â€â‚¬Ã¢â€â‚¬
 document.getElementById('canvas-scroll').addEventListener('dragover',e=>{
   if(Array.from(e.dataTransfer.types).some(t=>t.toLowerCase()==='files')){
     e.preventDefault();
@@ -5056,13 +5056,13 @@ document.getElementById('canvas-scroll').addEventListener('drop',e=>{
 });
 
 // Clicks on empty canvas space deselect everything. We need to distinguish three cases:
-//   1. Click hit a DOM element (.canvas-elem, .cell, .canvas-text-pro) Ã¢â€ â€™ handled by
+//   1. Click hit a DOM element (.canvas-elem, .cell, .canvas-text-pro) → handled by
 //      the element itself; we leave its selection alone.
-//   2. Click hit the Fabric upper-canvas (target inside .canvas-container) Ã¢â€ â€™ Fabric
+//   2. Click hit the Fabric upper-canvas (target inside .canvas-container) → Fabric
 //      already processed it (selecting a text or firing selection:cleared), so we
 //      don't intervene here.
 //   3. Click bypassed Fabric (because pointer-events were 'none' on empty zones) and
-//      landed on bare #collage-canvas Ã¢â€ â€™ empty-space click; deselect everything,
+//      landed on bare #collage-canvas → empty-space click; deselect everything,
 //      including any active Fabric object (handled by deselect()).
 function clickLandedOnEditable(e){
   if(e.target.closest('.canvas-elem,.canvas-text-pro,.canvas-text,.cell,.canvas-container'))return true;
@@ -5112,7 +5112,7 @@ document.addEventListener('keydown',e=>{
   const tag=document.activeElement.tagName;
   const inFormField=tag==='INPUT'||tag==='TEXTAREA'||document.activeElement.isContentEditable;
   // Fabric IText is "in editing mode" when the user has double-clicked into it; in
-  // that mode the user is typing Ã¢â‚¬â€ keyboard shortcuts must not steal Backspace etc.
+  // that mode the user is typing — keyboard shortcuts must not steal Backspace etc.
   const fabActive=fabricCanvas&&fabricCanvas.getActiveObject();
   const fabricEditing=!!(fabActive&&fabActive.isEditing);
 
@@ -5211,7 +5211,7 @@ let exportFmt='png';
 function showExportModal(){
   document.getElementById('export-modal').classList.add('open');
   const scale=parseInt(document.getElementById('exp-scale').value)||2;
-  document.getElementById('exp-pixel-size').textContent=Math.round(canvasW*scale)+' Ãƒâ€” '+Math.round(canvasH*scale)+' px';
+  document.getElementById('exp-pixel-size').textContent=Math.round(canvasW*scale)+' × '+Math.round(canvasH*scale)+' px';
   if(typeof loadExportAd==='function')loadExportAd();
 }
 function selectExportFmt(fmt){
@@ -5695,7 +5695,7 @@ const BG_IMAGES_DEF={
       for(let i=0;i<400;i++){ctx.fillRect(rnd()*w,rnd()*h,1,1);}
     }},
     {name:'Mesh Gradient',fn:(ctx,w,h,rnd)=>{
-      // CSS-mesh-gradient look Ã¢â‚¬â€ 4 large overlapping radial blobs in vivid hues
+      // CSS-mesh-gradient look — 4 large overlapping radial blobs in vivid hues
       // covering the canvas, then a subtle haze on top to soften the edges.
       ctx.fillStyle='#0d0a2e';ctx.fillRect(0,0,w,h);
       const stops=[
@@ -5735,7 +5735,7 @@ const BG_IMAGES_DEF={
       });
     }},
     {name:'Holographic',fn:(ctx,w,h,rnd)=>{
-      // Iridescent gradient sweep Ã¢â‚¬â€ pinks, purples, blues, mint
+      // Iridescent gradient sweep — pinks, purples, blues, mint
       const g=ctx.createLinearGradient(0,0,w,h);
       g.addColorStop(0,'#ff80b5');g.addColorStop(.25,'#c47aff');g.addColorStop(.5,'#7ab9ff');g.addColorStop(.75,'#7af9d4');g.addColorStop(1,'#fff48a');
       ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
@@ -5904,7 +5904,7 @@ const BG_IMAGES_DEF={
     {name:'Watercolor',fn:(ctx,w,h,rnd)=>{
       // Soft cream base
       ctx.fillStyle='#fdf9f0';ctx.fillRect(0,0,w,h);
-      // Wet-on-wet washes Ã¢â‚¬â€ overlapping translucent radial gradients in muted hues
+      // Wet-on-wet washes — overlapping translucent radial gradients in muted hues
       const cols=['#fbb4b4','#a8c8e8','#b8d8b0','#e8d4b0','#d8b8e0','#a0d8d0'];
       for(let i=0;i<10;i++){
         const cx=rnd()*w,cy=rnd()*h,r=h*.18+rnd()*h*.25;
@@ -5913,7 +5913,7 @@ const BG_IMAGES_DEF={
         g.addColorStop(0,c+'66');g.addColorStop(.5,c+'33');g.addColorStop(1,'transparent');
         ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
       }
-      // Edge bleeds Ã¢â‚¬â€ irregular blob outlines
+      // Edge bleeds — irregular blob outlines
       ctx.lineWidth=1;
       for(let i=0;i<6;i++){
         ctx.strokeStyle=cols[i%cols.length]+'70';
@@ -6061,18 +6061,18 @@ const PATTERNS=[
   {name:'Cross',fn:(ctx,s)=>{ctx.strokeStyle='#4956a540';ctx.lineWidth=1.5;for(let x=10;x<s;x+=22)for(let y=10;y<s;y+=22){ctx.beginPath();ctx.moveTo(x-6,y);ctx.lineTo(x+6,y);ctx.moveTo(x,y-6);ctx.lineTo(x,y+6);ctx.stroke();}}},
   {name:'Wave',fn:(ctx,s)=>{ctx.strokeStyle='#4956a530';ctx.lineWidth=1.5;for(let y=10;y<s;y+=18){ctx.beginPath();for(let x=0;x<s;x+=2){ctx.lineTo(x,y+Math.sin(x/10)*6);}ctx.stroke();}}},
   {name:'Stars',fn:(ctx,s)=>{ctx.fillStyle='#4956a540';for(let x=12;x<s;x+=24)for(let y=12;y<s;y+=24){ctx.save();ctx.translate(x,y);for(let i=0;i<5;i++){ctx.beginPath();ctx.arc(0,0,2,0,Math.PI*2);ctx.fill();ctx.translate(5*Math.cos(i*Math.PI*2/5),5*Math.sin(i*Math.PI*2/5));}ctx.restore();}}},
-  // Confetti Ã¢â‚¬â€ multi-color party dots with subtle rotation, good for birthday
+  // Confetti — multi-color party dots with subtle rotation, good for birthday
   // and celebration backgrounds.
   {name:'Confetti',fn:(ctx,s)=>{const cols=['#ec407a','#ffd54f','#42a5f5','#66bb6a','#ab47bc','#ff7043'];for(let i=0;i<26;i++){const x=(i*37%s),y=((i*53)%s),c=cols[i%cols.length];ctx.fillStyle=c+'80';ctx.save();ctx.translate(x,y);ctx.rotate(i*0.7);ctx.fillRect(-3,-1.5,6,3);ctx.restore();}}},
-  // Triangles Ã¢â‚¬â€ alternating up/down small triangles, almost mosaic-like.
+  // Triangles — alternating up/down small triangles, almost mosaic-like.
   {name:'Triangles',fn:(ctx,s)=>{ctx.fillStyle='#4956a525';const t=14;for(let r=0;r<s/t+1;r++){for(let c=0;c<s/t+1;c++){const x=c*t,y=r*t,up=(r+c)%2===0;ctx.beginPath();if(up){ctx.moveTo(x,y+t);ctx.lineTo(x+t,y+t);ctx.lineTo(x+t/2,y);}else{ctx.moveTo(x,y);ctx.lineTo(x+t,y);ctx.lineTo(x+t/2,y+t);}ctx.closePath();ctx.fill();}}}},
-  // Hearts Ã¢â‚¬â€ small hand-drawn hearts pattern, perfect for love/anniversary.
+  // Hearts — small hand-drawn hearts pattern, perfect for love/anniversary.
   {name:'Hearts',fn:(ctx,s)=>{ctx.fillStyle='#ec407a45';const sp=20;for(let r=0;r<s/sp+1;r++){for(let c=0;c<s/sp+1;c++){const x=c*sp+(r%2?sp/2:0),y=r*sp;ctx.beginPath();ctx.moveTo(x,y+5);ctx.bezierCurveTo(x-5,y,x-5,y-3,x,y);ctx.bezierCurveTo(x+5,y-3,x+5,y,x,y+5);ctx.fill();}}}},
-  // Brick Ã¢â‚¬â€ staggered brick wall, neutral architectural background.
+  // Brick — staggered brick wall, neutral architectural background.
   {name:'Brick',fn:(ctx,s)=>{ctx.strokeStyle='#4956a540';ctx.lineWidth=1.2;const bw=24,bh=12;for(let r=0;r<s/bh+1;r++){const offset=(r%2)*bw/2;for(let c=-1;c<s/bw+1;c++){ctx.strokeRect(c*bw+offset,r*bh,bw,bh);}}}},
-  // Plaid Ã¢â‚¬â€ tartan check, double crossed lines for a cozy sweater feel.
+  // Plaid — tartan check, double crossed lines for a cozy sweater feel.
   {name:'Plaid',fn:(ctx,s)=>{ctx.strokeStyle='#4956a530';ctx.lineWidth=1;for(let i=0;i<s;i+=12){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i,s);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i);ctx.lineTo(s,i);ctx.stroke();}ctx.strokeStyle='#ec407a40';ctx.lineWidth=2.5;for(let i=6;i<s;i+=24){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i,s);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i);ctx.lineTo(s,i);ctx.stroke();}}},
-  // Rays Ã¢â‚¬â€ sunburst lines radiating from corner, energetic / poster vibe.
+  // Rays — sunburst lines radiating from corner, energetic / poster vibe.
   {name:'Rays',fn:(ctx,s)=>{ctx.strokeStyle='#ffd54f70';ctx.lineWidth=1.5;ctx.beginPath();for(let a=0;a<Math.PI/2;a+=Math.PI/24){ctx.moveTo(0,0);ctx.lineTo(Math.cos(a)*s*1.5,Math.sin(a)*s*1.5);}ctx.stroke();}},
 ];
 
@@ -6186,7 +6186,7 @@ function enterSwapMode(idx){
   cells.forEach((c,i)=>{if(i!==idx)c.el.classList.add('swap-tgt');});
   // Show banner
   document.getElementById('swap-banner').classList.add('show');
-  showToast('Click any cell to swap Ã¢â‚¬â€ or close to cancel','');
+  showToast('Click any cell to swap — or close to cancel','');
 }
 
 function cancelSwap(){
@@ -6198,13 +6198,13 @@ function cancelSwap(){
 
 function enableCellSwap(idx){
   if(swapSourceIdx===null){
-    // Enter swap mode Ã¢â‚¬â€ this cell is the source
+    // Enter swap mode — this cell is the source
     enterSwapMode(idx);
   } else if(swapSourceIdx===idx){
-    // Clicked source again Ã¢â‚¬â€ cancel
+    // Clicked source again — cancel
     cancelSwap();
   } else {
-    // Clicked a different cell Ã¢â‚¬â€ do the swap
+    // Clicked a different cell — do the swap
     const a=cells[swapSourceIdx],b=cells[idx];
     const tmpData=a.imgData,tmpFit=a.fit;
     if(b.imgData){setPhotoInCell(swapSourceIdx,b.imgData,a);a.fit=b.fit||'cover';if(a.img)a.img.style.objectFit=a.fit;}
@@ -6249,7 +6249,7 @@ function openCropModal(idx){
   const g=gcd(Math.round(cellW),Math.round(cellH));
   const rw=Math.round(cellW/g), rh=Math.round(cellH/g);
   document.getElementById('crop-ratio-badge').textContent=`${rw} : ${rh}`;
-  document.getElementById('crop-cell-size').textContent=`${Math.round(cellW)} Ãƒâ€” ${Math.round(cellH)} px`;
+  document.getElementById('crop-cell-size').textContent=`${Math.round(cellW)} × ${Math.round(cellH)} px`;
 
   // Load image
   const img=document.getElementById('crop-img');
@@ -6480,14 +6480,14 @@ window.addEventListener('resize',()=>{
   setTimeout(resetZoom,50);
 });
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Ã¢â€â‚¬Ã¢â€â‚¬ PRO ELEMENTS SYSTEM Ã¢â€â‚¬Ã¢â€â‚¬
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 
 // Shared element interaction state
 let selectedElem=null;
 // Multi-selection set for DOM elements (cells, canvas-elem, image elements). Fabric
-// objects manage their own ActiveSelection via fabricCanvas Ã¢â‚¬â€ when we need the full
+// objects manage their own ActiveSelection via fabricCanvas — when we need the full
 // selection across both layers we union this set with fabricCanvas.getActiveObjects().
 const multiSelectedDOM=new Set();
 function clearMultiSelectionDOM(){
@@ -6504,7 +6504,7 @@ function removeFromMultiSelectionDOM(el){
   multiSelectedDOM.delete(el);
   el.classList&&el.classList.remove('multi-selected');
 }
-// Returns ALL currently selected items across both layers Ã¢â‚¬â€ DOM elements (Set members
+// Returns ALL currently selected items across both layers — DOM elements (Set members
 // PLUS the legacy single selectedElem if it's a DOM node) + Fabric objects.
 function getAllSelectedItems(){
   const out=[];
@@ -6682,7 +6682,7 @@ const DECO_ELEMENTS=[
 // Ã¢â€â‚¬Ã¢â€â‚¬ Line / Arrow SVGs Ã¢â€â‚¬Ã¢â€â‚¬
 const LINE_ELEMENTS=[
   {id:'line-h',label:'Line',svg:`<line x1="2" y1="13" x2="24" y2="13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>`,isLine:true},
-  {id:'arrow-r',label:'Arrow Ã¢â€ â€™',svg:`<line x1="2" y1="13" x2="20" y2="13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><polyline points="15,8 20,13 15,18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`,isLine:true},
+  {id:'arrow-r',label:'Arrow →',svg:`<line x1="2" y1="13" x2="20" y2="13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><polyline points="15,8 20,13 15,18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`,isLine:true},
   {id:'arrow-lr',label:'Ã¢â€ â€ Arrow',svg:`<line x1="2" y1="13" x2="24" y2="13" stroke="currentColor" stroke-width="2.5"/><polyline points="7,8 2,13 7,18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="19,8 24,13 19,18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`,isLine:true},
   {id:'divider',label:'Divider',svg:`<line x1="2" y1="10" x2="24" y2="10" stroke="currentColor" stroke-width="1.5"/><line x1="2" y1="16" x2="24" y2="16" stroke="currentColor" stroke-width="1.5"/>`,isLine:true},
   {id:'dashed',label:'Dashed',svg:`<line x1="2" y1="13" x2="24" y2="13" stroke="currentColor" stroke-width="2.5" stroke-dasharray="4 3" stroke-linecap="round"/>`,isLine:true},
@@ -6870,7 +6870,7 @@ function buildElementsTab(){
   // Frames
   buildElemGrid('elem-frames', FRAME_ELEMENTS, t=>addCanvasElem({type:'shape',svg:t.svg,id:t.id,color:'#4956a5',w:t.w||100,h:t.h||100,rot:0,opacity:1,isFrame:t.isFrame}));
   // Lines
-  // Lines & Arrows Ã¢â‚¬â€ each preset enters draw mode pre-configured with its
+  // Lines & Arrows — each preset enters draw mode pre-configured with its
   // style. User clicks the preset then drags on the canvas to draw a real
   // point-to-point line. The line is editable from the right inspector after
   // drawing (color, width, style, rotation, opacity). Same shape and behaviour
@@ -6968,7 +6968,7 @@ function buildTextTab(){
 
   // Align buttons
   const abt=document.getElementById('text-align-btns');if(!abt)return;abt.innerHTML='';
-  [['Ã¢â€ Â','left'],['Ã¢â‚¬â€','center'],['Ã¢â€ â€™','right']].forEach(([icon,val])=>{
+  [['Ã¢â€ Â','left'],['—','center'],['→','right']].forEach(([icon,val])=>{
     const b=document.createElement('button');b.className='tab-btn';b.textContent=icon;
     b.onclick=()=>{abt.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');updateTextProp('textAlign',val);};
     abt.appendChild(b);
@@ -7007,7 +7007,7 @@ function addCanvasElem(opts){
   if(opts.type==='emoji'){
     el.innerHTML=`<span style="font-size:${opts.fontSize||48}px;line-height:1;display:block;text-align:center;user-select:none">${opts.content}</span>`;
   } else {
-    // SVG shape Ã¢â‚¬â€ inject with current color
+    // SVG shape — inject with current color
     el.innerHTML=`<svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;color:${opts.color||'#4956a5'};fill:${opts.isLine||opts.isFrame?'none':opts.color||'#4956a5'};stroke:${opts.isLine||opts.isFrame?opts.color||'#4956a5':'none'}">${opts.svg}</svg>`;
   }
 
@@ -7081,7 +7081,7 @@ function attachDragHandler(el){
     const t=e.touches[0];
     elemDrag={active:true,startX:t.clientX,startY:t.clientY,startL:parseInt(el.style.left)||0,startT:parseInt(el.style.top)||0,el,companions:captureCompanions()};
   },{passive:false});
-  // On mobile, click event is suppressed by touch-action:none Ã¢â‚¬â€ use touchend to select
+  // On mobile, click event is suppressed by touch-action:none — use touchend to select
   el.addEventListener('touchend',e=>{
     if(e.target.classList.contains('ce-del')||e.target.classList.contains('ce-resize')||e.target.classList.contains('ce-rotate'))return;
     const t=e.changedTouches[0];
@@ -7291,7 +7291,7 @@ function selectElem(el,additive){
     }
     return;
   }
-  // Non-additive Ã¢â‚¬â€ clear everything and select just this one.
+  // Non-additive — clear everything and select just this one.
   document.querySelectorAll('.canvas-elem,.canvas-text-pro').forEach(e=>e.classList.remove('selected'));
   document.querySelectorAll('.cell').forEach(c=>c.classList.remove('selected'));
   document.querySelectorAll('.canvas-text').forEach(t=>t.classList.remove('selected'));
@@ -7458,7 +7458,7 @@ let _histDebounce=null;
 function debouncedSave(){clearTimeout(_histDebounce);_histDebounce=setTimeout(saveHistory,600);}
 
 function setTP(prop,val){
-  // Fabric path Ã¢â‚¬â€ write to the underlying IText and re-render the overlay canvas.
+  // Fabric path — write to the underlying IText and re-render the overlay canvas.
   if(selectedElem?.__fabric){
     applyCSSToFabricText(selectedElem.__fabric,prop,val);
     if(fabricCanvas)fabricCanvas.requestRenderAll();
@@ -7487,7 +7487,7 @@ function applyCSSToFabricText(fab,cssProp,val){
     }
     case 'fontSize':{
       const nf=parseFloat(val)||36;
-      // Preserve charSpacing (pxÃ¢â€ â€™em conversion depends on fontSize).
+      // Preserve charSpacing (px→em conversion depends on fontSize).
       const lsPx=(fab.charSpacing||0)/1000*(fab.fontSize||36);
       fab.set('fontSize',nf);
       if(lsPx)fab.set('charSpacing',Math.round(lsPx/nf*1000));
@@ -7546,7 +7546,7 @@ function applyCSSToFabricText(fab,cssProp,val){
       break;
     }
     case 'border':{
-      // "Npx solid color" Ã¢â‚¬â€ clears when empty / 'none' / '0px'
+      // "Npx solid color" — clears when empty / 'none' / '0px'
       if(!val||val==='none'){fab.__border=null;break;}
       const m=String(val).match(/([\d.]+)px\s+(?:solid\s+)?(.+)/);
       if(m){fab.__border={width:parseFloat(m[1])||1,color:(m[2]||'#000').trim()};}
@@ -7637,7 +7637,7 @@ function setElemColor(col,swatchEl){
   debouncedSave();
 }
 
-// Hook canvas click/touch to deselect elements Ã¢â‚¬â€ handled by unified deselect() above
+// Hook canvas click/touch to deselect elements — handled by unified deselect() above
 
 
 // Ã¢â€â‚¬Ã¢â€â‚¬ Override showAddText to use pro system Ã¢â€â‚¬Ã¢â€â‚¬
@@ -7647,7 +7647,7 @@ function showAddText(){
 }
 
 // INIT
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Ã¢â€â‚¬Ã¢â€â‚¬ Z-INDEX HELPERS Ã¢â€â‚¬Ã¢â€â‚¬
 function getElemZ(el){
   return parseInt(window.getComputedStyle(el).zIndex)||50;
@@ -7664,7 +7664,7 @@ function sendBackward(el){
 }
 
 // Ã¢â€â‚¬Ã¢â€â‚¬ DUPLICATE ELEMENT Ã¢â€â‚¬Ã¢â€â‚¬
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 function duplicateElem(el){
   if(!el)return;
   const clone=el.cloneNode(true);
@@ -7691,9 +7691,9 @@ function duplicateElem(el){
   showToast('Duplicated!','success');
 }
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Ã¢â€â‚¬Ã¢â€â‚¬ CONTEXT MENU (long press on cell) Ã¢â€â‚¬Ã¢â€â‚¬
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 let ctxLongPressTimer=null;
 const ctxMenu=document.getElementById('ctx-menu');
 
@@ -7732,14 +7732,14 @@ function attachCellLongPress(el,idx){
   el.addEventListener('touchmove',()=>{clearTimeout(ctxLongPressTimer);},{passive:true});
 }
 
-// Attach long press to cells after render Ã¢â‚¬â€ called from renderCollage directly
+// Attach long press to cells after render — called from renderCollage directly
 function attachAllCellLongPress(){
   cells.forEach((cd,i)=>attachCellLongPress(cd.el,i));
 }
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Ã¢â€â‚¬Ã¢â€â‚¬ PINCH-TO-ZOOM ON CANVAS (mobile) Ã¢â€â‚¬Ã¢â€â‚¬
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 let pinchStartDist=0, pinchStartZoom=1;
 const canvasScroll=document.getElementById('canvas-scroll');
 
@@ -7771,9 +7771,9 @@ canvasScroll.addEventListener('touchmove',e=>{
   }
 },{passive:false});
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Ã¢â€â‚¬Ã¢â€â‚¬ RECENT COLORS Ã¢â€â‚¬Ã¢â€â‚¬
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 let recentColors=[];
 function addRecentColor(hex){
   if(!hex||!hex.startsWith('#'))return;
@@ -7803,7 +7803,7 @@ function renderRecentColors(){
     });
   });
 }
-// Hook into liveCustomBg to track recent colors Ã¢â‚¬â€ done inline in liveCustomBg itself
+// Hook into liveCustomBg to track recent colors — done inline in liveCustomBg itself
 
 // Add recent colors row to bg solid tab
 (function injectRecentColors(){
@@ -7814,9 +7814,9 @@ function renderRecentColors(){
   solidPanel.appendChild(row);
 })();
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Ã¢â€â‚¬Ã¢â€â‚¬ MULTI-SELECT ELEMENTS (Shift+Click) Ã¢â€â‚¬Ã¢â€â‚¬
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 let multiSelected=new Set();
 document.addEventListener('keydown',e2=>{
   // Shift+A to select all elements
@@ -7849,12 +7849,12 @@ document.getElementById('collage-canvas').addEventListener('mousedown',e=>{
   }
 },{capture:true});
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Ã¢â€â‚¬Ã¢â€â‚¬ FILENAME IN EXPORT Ã¢â€â‚¬Ã¢â€â‚¬
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════
 // Extension badge update is handled inline via selectExportFmt below
 
-// Filename-aware export Ã¢â‚¬â€ replaces doExportWithOptions inline below
+// Filename-aware export — replaces doExportWithOptions inline below
 
 function init(startId = 'mag'){
   buildStickerGrid();buildCountPills();buildTemplateGrid();buildPatternGrid();buildGradPresets();buildBgImages();
@@ -7879,7 +7879,7 @@ function init(startId = 'mag'){
   if(typeof requestIdleCallback==='function')requestIdleCallback(prefetchOcc,{timeout:2500});
   else setTimeout(prefetchOcc,800);
 
-  // Apply a starting template Ã¢â‚¬â€ if it's an occasion id we may have to wait for the
+  // Apply a starting template — if it's an occasion id we may have to wait for the
   // lazy load to finish before we can find it.
   const tryApplyStart=()=>{
     const occT = OCC_TEMPLATES&&OCC_TEMPLATES.find(t=>t.id===startId);
@@ -7909,7 +7909,7 @@ function init(startId = 'mag'){
   };
   setTimeout(()=>{
     if(tryApplyStart())return;
-    // Likely an occasion id but templates haven't loaded yet Ã¢â‚¬â€ wait for the prefetch.
+    // Likely an occasion id but templates haven't loaded yet — wait for the prefetch.
     loadOccTemplates().then(tryApplyStart).catch(()=>{});
   }, 120);
 
@@ -7987,8 +7987,8 @@ ${texts.length ? texts.join('\n') : '  (no Fabric text found - was the template 
 };
 console.log('%cdumpTemplate() ready', 'color:#4361ee;font-weight:700');
 
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-// FREEHAND DRAW TOOL Ã¢â‚¬â€ lets the user draw freehand lines/arrows on
+// ══════════════════════════════════════════════════════════════════
+// FREEHAND DRAW TOOL — lets the user draw freehand lines/arrows on
 // the canvas with the mouse. Supports stroke color, width, line
 // style (solid/dashed/dotted), and optional arrowheads.
 //
@@ -7999,7 +7999,7 @@ console.log('%cdumpTemplate() ready', 'color:#4361ee;font-weight:700');
 // dataset also stores drawColor/drawWidth/drawStyle/drawArrow/
 // drawPathRel + drawBaseW/drawBaseH so the inspector panel can
 // rebuild the SVG when the user edits properties later.
-// Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+// ══════════════════════════════════════════════════════════════════
 
 (function injectDrawCSS(){
   if(document.getElementById('freehand-draw-css'))return;
@@ -8277,7 +8277,7 @@ function _fdRebuildElemSvg(el){
   }
 }
 
-// Inspector panel for freehand-line Ã¢â‚¬â€ invoked by patching
+// Inspector panel for freehand-line — invoked by patching
 // updateRightPanelForElem to branch on the new type.
 function _fdRenderInspector(el){
   const rp=document.getElementById('rp-body');
