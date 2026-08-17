@@ -1,17 +1,460 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4449A6"><title>Photo Collage Maker - 100+ Free Layouts Online | Daily1Step</title><meta name="description" content="Create photo collages with 100+ free templates, custom layouts, text, stickers, and 4K export. Browser-based, no upload, no signup, no watermark."><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Daily1Step Collage Maker","url":"https://bypyay.github.io/collagetools/collage-maker/","applicationCategory":"DesignApplication","operatingSystem":"Any (browser-based)","browserRequirements":"Requires JavaScript. Requires HTML5.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":"100+ templates, custom layouts, text editor, sticker library, photo filters, 4K export, no signup, no upload"}</script><link rel="canonical" href="https://bypyay.github.io/collagetools/collage-maker/"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Pacifico&family=Dancing+Script:wght@700&family=Bebas+Neue&family=Montserrat:wght@400;700;900&family=Lobster&family=Raleway:wght@300;700;900&family=Abril+Fatface&family=Permanent+Marker&family=Righteous&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet"><link href="../assets/css/tool.css?v=38" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><script src="../vendor/fabric.min.js"></script></head><body><div id="page-loader" style="position:fixed;inset:0;z-index:9999;background:#f8f9ff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .45s"><div class="loader-logo"><span style="color:#f43f5e;font-size:1.6rem;font-weight:800;margin-right:6px;">✦</span> Collage </div><div class="loader-bar-wrap"><div class="loader-bar"></div></div><div class="loader-text">Loading your collage studio…</div><script>(function(){function killLoader(){var el=document.getElementById('page-loader');if(!el)return;el.style.opacity='0';el.style.pointerEvents='none';setTimeout(function(){if(el&&el.parentNode)el.parentNode.removeChild(el);},500);}
-if(document.readyState!=='loading'){setTimeout(killLoader,800);}
-document.addEventListener('DOMContentLoaded',function(){setTimeout(killLoader,800);});window.addEventListener('load',function(){setTimeout(killLoader,400);});setTimeout(killLoader,4000);})();</script></div><header><div class="logo"><a href="../index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;"><span style="color:#f43f5e;font-size:1.6rem;font-weight:800;margin-right:6px;">✦</span> Collage</a></div><div class="header-actions"><button class="hdr-btn hdr-btn-danger" onclick="clearCanvas()" title="Clear canvas"><i class="fa-solid fa-trash"></i></button><button class="hdr-btn hdr-btn-primary" onclick="showExportModal()"><i class="fa-solid fa-download"></i> Export Collage</button></div></header><div class="app-body"><aside class="sidebar"><div class="sidebar-icon-tabs"><button class="stab active" title="Layouts" onclick="switchTab('templates',this)"><span class="si"><i class="fa-solid fa-table-cells-large"></i></span><span class="sl">Layout</span></button><button class="stab" title="Templates" onclick="switchTab('occasions',this)"><span class="si"><i class="fa-solid fa-cake-candles"></i></span><span class="sl">Templates</span></button><button class="stab" title="Photos" onclick="switchTab('photos',this)"><span class="si"><i class="fa-solid fa-image"></i></span><span class="sl">Photos</span></button><button class="stab" title="Elements" onclick="switchTab('elements',this)"><span class="si"><i class="fa-solid fa-shapes"></i></span><span class="sl">Elem</span></button><button class="stab" title="Text" onclick="switchTab('text',this)"><span class="si"><i class="fa-solid fa-font"></i></span><span class="sl">Text</span></button><button class="stab" title="Style" onclick="switchTab('style',this)"><span class="si"><i class="fa-solid fa-palette"></i></span><span class="sl">Style</span></button></div><div class="sidebar-panel-wrap" id="sidebar-panel-wrap"><div id="tab-templates" class="sidebar-panel active"><div class="panel-label">Canvas Size</div><div class="size-pills"><button class="size-pill active" onclick="setCanvasSize(800,800,this)">1:1</button><button class="size-pill" onclick="setCanvasSize(1200,675,this)">16:9</button><button class="size-pill" onclick="setCanvasSize(675,1200,this)">9:16</button><button class="size-pill" onclick="setCanvasSize(1050,750,this)">4:3</button><button class="size-pill" onclick="setCanvasSize(1200,628,this)">OG</button></div><div class="panel-label">Social Media</div><div class="social-pills">
-<button class="social-pill" onclick="setCanvasSize(1080,1080,this)" title="Instagram Post"><span class="sp-icon"><i class="fa-brands fa-instagram" style="color:#E1306C;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">IG Post</span><span class="sp-size">1080x1080</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1080,1920,this)" title="Instagram Story"><span class="sp-icon"><i class="fa-solid fa-mobile-screen" style="color:#833AB4;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">IG Story</span><span class="sp-size">1080x1920</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1200,630,this)" title="Facebook"><span class="sp-icon"><i class="fa-brands fa-facebook" style="color:#1877F2;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">Facebook</span><span class="sp-size">1200x630</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1500,500,this)" title="Twitter/X"><span class="sp-icon"><i class="fa-brands fa-x-twitter" style="color:#000000;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">Twitter</span><span class="sp-size">1500x500</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1000,1500,this)" title="Pinterest"><span class="sp-icon"><i class="fa-brands fa-pinterest" style="color:#E60023;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">Pinterest</span><span class="sp-size">1000x1500</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1920,1080,this)" title="YouTube"><span class="sp-icon"><i class="fa-brands fa-youtube" style="color:#FF0000;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">YouTube</span><span class="sp-size">1920x1080</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1080,566,this)" title="LinkedIn"><span class="sp-icon"><i class="fa-brands fa-linkedin" style="color:#0A66C2;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">LinkedIn</span><span class="sp-size">1080x566</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1200,1800,this)" title="Print 4x6"><span class="sp-icon"><i class="fa-solid fa-print" style="color:#64748b;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">Print 4x6</span><span class="sp-size">1200x1800</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1080,608,this)" title="TikTok"><span class="sp-icon"><i class="fa-brands fa-tiktok" style="color:#000000;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">TikTok</span><span class="sp-size">1080x608</span></span></button>
-<button class="social-pill" onclick="setCanvasSize(1200,1200,this)" title="WhatsApp"><span class="sp-icon"><i class="fa-brands fa-whatsapp" style="color:#25D366;font-size:16px;"></i></span><span class="sp-text"><span class="sp-name">WhatsApp</span><span class="sp-size">1200x1200</span></span></button>
-</div><div class="panel-label">Choose Layout</div><div class="count-pills" id="count-pills"></div><div id="layout-sections"></div><div class="panel-label" style="margin-top:14px"><i class="fa-solid fa-gear"></i> Custom Layout</div><div class="custom-builder" id="custom-builder"><div class="cb-row"><span class="cb-label">Photos</span><div class="cb-stepper"><button onclick="customBuilderChange(-1)"><i class="fa-solid fa-minus"></i></button><span id="cb-count">4</span><button onclick="customBuilderChange(1)"><i class="fa-solid fa-plus"></i></button></div></div><div class="cb-row"><span class="cb-label">Style</span><select class="prop-input cb-select" id="cb-style"><option value="grid">Auto Grid</option><option value="row">Equal Rows</option><option value="col">Equal Columns</option><option value="masonry">Masonry</option><option value="feature">Feature + Rest</option></select></div><button class="btn btn-primary" style="width:100%;margin-top:6px;font-size:12px" onclick="applyCustomLayout()"><i class="fa-solid fa-wand-magic-sparkles"></i> Create Layout</button></div></div><div id="tab-photos" class="sidebar-panel"><div class="upload-zone" id="upload-zone" onclick="document.getElementById('bulk-input').click()" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragleave="handleDragLeave(event)"><div class="uz-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><p><strong>Click to upload</strong><br>or drag & drop photos</p></div><input type="file" id="bulk-input" accept="image/*" multiple style="display:none" onchange="handleFileInput(event)"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div class="panel-label" style="margin:0">Photos (<span id="photo-count">0</span>)</div><div style="display:flex;gap:4px"><button class="btn btn-ghost btn-sm" onclick="autoFill()"><i class="fa-solid fa-bolt"></i> Fill</button><button class="btn btn-ghost btn-sm" onclick="shufflePhotos()"><i class="fa-solid fa-shuffle"></i></button></div></div><div class="fill-bar"><div class="fill-progress" id="fill-progress" style="width:0%"></div></div><div class="photo-thumbs" id="photo-thumbs"></div></div><div id="tab-occasions" class="sidebar-panel"><div class="occ-sticky-head"><div class="panel-label" style="margin-top:0"><i class="fa-solid fa-cake-candles"></i> Templates</div><div class="panel-label">Canvas Size</div><div class="size-pills"><button class="size-pill active" onclick="setCanvasSize(800,800,this)">1:1</button><button class="size-pill" onclick="setCanvasSize(1200,675,this)">16:9</button><button class="size-pill" onclick="setCanvasSize(675,1200,this)">9:16</button><button class="size-pill" onclick="setCanvasSize(1050,750,this)">4:3</button><button class="size-pill" onclick="setCanvasSize(1200,628,this)">OG</button></div><div class="occasion-cat-pills" id="occ-cat-pills"></div></div><div class="occ-template-grid" id="occ-template-grid"></div></div><div id="tab-elements" class="sidebar-panel"><div class="panel-label" style="margin-top:0">Custom Images</div><div class="upload-zone" id="img-elem-upload-zone" style="padding:14px 10px;margin-bottom:10px" onclick="document.getElementById('img-elem-input').click()"><div class="uz-icon"><i class="fa-solid fa-image"></i></div><p><strong>Click to upload</strong><br>or drag & drop image</p></div><input type="file" id="img-elem-input" accept="image/*" multiple style="display:none" onchange="addImageElements(event)"><div class="photo-thumbs" id="img-elem-thumbs" style="margin-bottom:12px"></div><div class="panel-label">Lines & Arrows</div><div class="elem-grid" id="elem-lines"></div><div class="panel-label">Shapes</div><div class="elem-grid" id="elem-shapes"></div><div class="panel-label">Stickers & Emojis</div><div class="elem-grid" id="elem-stickers"></div><div class="panel-label">Frames & Borders</div><div class="elem-grid" id="elem-frames"></div><div class="panel-label">Decorations</div><div class="elem-grid" id="elem-deco"></div></div><div id="tab-text" class="sidebar-panel"><div class="panel-label" style="margin-top:0">Quick Add</div><div class="text-style-list" id="text-style-list"></div><p style="font-size:11px;color:var(--text-muted);margin-top:14px;line-height:1.6"> Click any preset to add it to the canvas. Once added, select the text to edit font, color, shadow, stroke and other properties from the Properties panel on the right. </p></div><div id="tab-style" class="sidebar-panel"><div class="panel-label" style="margin-top:0">Background</div><div class="bg-subtabs" id="bg-subtabs"><button class="bg-stab active" onclick="switchBgTab('colors',this)">Colors</button><button class="bg-stab" onclick="switchBgTab('gradients',this)">Gradients</button><button class="bg-stab" onclick="switchBgTab('patterns',this)">Patterns</button><button class="bg-stab" onclick="switchBgTab('images',this)">Images</button></div><div id="bgtab-colors" class="bgtab-panel active"><div class="bg-section-label">Light & Pastel</div><div class="color-grid-clean"><div class="csw selected" style="background:#ffffff;border:1px solid #ddd" data-color="#ffffff" onclick="setBgClean(this)" title="White"></div><div class="csw" style="background:#ffd6e0" data-color="#ffd6e0" onclick="setBgClean(this)" title="Rose Pink"></div><div class="csw" style="background:#c8e6fa" data-color="#c8e6fa" onclick="setBgClean(this)" title="Baby Blue"></div><div class="csw" style="background:#b5ead7" data-color="#b5ead7" onclick="setBgClean(this)" title="Mint"></div><div class="csw" style="background:#fff3b0" data-color="#fff3b0" onclick="setBgClean(this)" title="Butter"></div><div class="csw" style="background:#ddb8f5" data-color="#ddb8f5" onclick="setBgClean(this)" title="Lavender"></div><div class="csw" style="background:#ffc9a1" data-color="#ffc9a1" onclick="setBgClean(this)" title="Peach"></div><div class="csw" style="background:#a8e6cf" data-color="#a8e6cf" onclick="setBgClean(this)" title="Sage"></div></div><div class="bg-section-label" style="margin-top:10px">Vibrant</div><div class="color-grid-clean"><div class="csw" style="background:#4956a5" data-color="#4956a5" onclick="setBgClean(this)" title="Indigo"></div><div class="csw" style="background:#e53935" data-color="#e53935" onclick="setBgClean(this)" title="Red"></div><div class="csw" style="background:#2e9c3a" data-color="#2e9c3a" onclick="setBgClean(this)" title="Green"></div><div class="csw" style="background:#f57c00" data-color="#f57c00" onclick="setBgClean(this)" title="Orange"></div><div class="csw" style="background:#9c27b0" data-color="#9c27b0" onclick="setBgClean(this)" title="Purple"></div><div class="csw" style="background:#0097a7" data-color="#0097a7" onclick="setBgClean(this)" title="Teal"></div><div class="csw" style="background:#e91e8c" data-color="#e91e8c" onclick="setBgClean(this)" title="Hot Pink"></div><div class="csw" style="background:#fbc02d" data-color="#fbc02d" onclick="setBgClean(this)" title="Gold"></div></div><div class="bg-section-label" style="margin-top:10px">Dark</div><div class="color-grid-clean"><div class="csw" style="background:#111111" data-color="#111111" onclick="setBgClean(this)" title="Black"></div><div class="csw" style="background:#1a1c2e" data-color="#1a1c2e" onclick="setBgClean(this)" title="Dark Navy"></div><div class="csw" style="background:#2d003f" data-color="#2d003f" onclick="setBgClean(this)" title="Deep Violet"></div><div class="csw" style="background:#003d35" data-color="#003d35" onclick="setBgClean(this)" title="Dark Teal"></div><div class="csw" style="background:#5c1a00" data-color="#5c1a00" onclick="setBgClean(this)" title="Dark Brown"></div><div class="csw" style="background:#5a0000" data-color="#5a0000" onclick="setBgClean(this)" title="Deep Red"></div><div class="csw" style="background:#002b00" data-color="#002b00" onclick="setBgClean(this)" title="Dark Forest"></div><div class="csw" style="background:#2e2e2e" data-color="#2e2e2e" onclick="setBgClean(this)" title="Charcoal"></div></div><div class="bg-section-label" style="margin-top:12px">Custom Color</div><div class="custom-color-row" style="position:relative"><div class="custom-color-trigger" id="custom-color-trigger" onclick="document.getElementById('custom-bg').click()"><div class="cct-swatch" id="cct-swatch" style="background:#ffffff"></div><span class="cct-label" id="cct-label">#ffffff</span><span class="cct-arrow"><i class="fa-solid fa-eye-dropper"></i> Pick</span></div><input type="color" id="custom-bg" value="#ffffff" oninput="liveCustomBg(this.value)" onchange="liveCustomBg(this.value)" style="position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;border:none;padding:0;margin:0"></div></div><div id="bgtab-gradients" class="bgtab-panel"><div class="bg-section-label">Preset Gradients</div><div class="grad-preset-grid" id="grad-preset-grid"></div><div class="bg-section-label" style="margin-top:14px">Custom Gradient</div><div class="custom-grad-card"><div style="display:flex;gap:10px;align-items:flex-end;margin-bottom:10px"><div style="flex:1;position:relative"><div class="grad-picker-label">From</div><div class="grad-picker-wrap" id="gpw1" onclick="document.getElementById('grad-c1').click()" style="cursor:pointer"><div class="gpw-swatch" id="gpw-swatch1" style="background:#4956a5"></div><span class="gpw-hex" id="gpw-hex1">#4956a5</span><span style="font-size:11px"><i class="fa-solid fa-eye-dropper"></i></span></div><input type="color" id="grad-c1" value="#4956a5" oninput="onGradColorChange()" onchange="onGradColorChange()" style="position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;border:none;padding:0;margin:0"></div><div style="padding-bottom:10px;font-size:18px;color:var(--text-muted);flex-shrink:0"><i class="fa-solid fa-arrow-right"></i></div><div style="flex:1;position:relative"><div class="grad-picker-label">To</div><div class="grad-picker-wrap" id="gpw2" onclick="document.getElementById('grad-c2').click()" style="cursor:pointer"><div class="gpw-swatch" id="gpw-swatch2" style="background:#c97ae8"></div><span class="gpw-hex" id="gpw-hex2">#c97ae8</span><span style="font-size:11px"><i class="fa-solid fa-eye-dropper"></i></span></div><input type="color" id="grad-c2" value="#c97ae8" oninput="onGradColorChange()" onchange="onGradColorChange()" style="position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;border:none;padding:0;margin:0"></div></div><div style="margin-bottom:10px"><div class="grad-picker-label">Direction</div><select id="grad-dir" onchange="onGradColorChange()" style="width:100%;padding:7px 10px;border-radius:8px;border:1.5px solid var(--border2);font-size:12px;background:var(--surface2);color:var(--text);font-family:'Outfit',sans-serif"><option value="135deg">Diagonal (top-left Ã¢â€ â€™ bottom-right)</option><option value="90deg">Top to Bottom</option><option value="0deg">Left to Right</option><option value="45deg">Diagonal (bottom-left Ã¢â€ â€™ top-right)</option><option value="180deg">Bottom to Top</option><option value="225deg">Diagonal (top-right Ã¢â€ â€™ bottom-left)</option></select></div><div id="grad-preview" style="height:44px;border-radius:10px;background:linear-gradient(135deg,#4956a5,#c97ae8);margin-bottom:10px;border:1.5px solid var(--border);transition:background .25s"></div><button type="button" class="btn btn-primary btn-sm" style="width:100%;font-size:12px" onclick="applyGradient()"><i class="fa-solid fa-check"></i> Apply to Canvas</button></div></div><div id="bgtab-patterns" class="bgtab-panel"><div class="bg-section-label">Background Patterns</div><div class="pattern-grid" id="pattern-grid"></div></div><div id="bgtab-images" class="bgtab-panel"><div class="bg-section-label">Nature</div><div class="bg-img-grid" id="bg-img-grid-nature"></div><div class="bg-section-label" style="margin-top:10px">Abstract</div><div class="bg-img-grid" id="bg-img-grid-abstract"></div><div class="bg-section-label" style="margin-top:10px">Texture</div><div class="bg-img-grid" id="bg-img-grid-texture"></div><div class="bg-section-label" style="margin-top:10px">Upload Custom</div><div class="upload-zone" style="padding:14px" onclick="document.getElementById('bg-img-input').click()"><div style="font-size:20px;margin-bottom:4px"><i class="fa-solid fa-mountain-sun"></i></div><p style="font-size:11px"><strong>Click to upload</strong> background image</p></div><input type="file" id="bg-img-input" accept="image/*" style="display:none" onchange="uploadBgImage(event)"></div><div class="panel-label" style="margin-top:14px">Cell Borders</div><div style="background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;padding:10px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px">Color</div><div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;align-items:center"><div onclick="document.getElementById('cell-border-color').value='#ffffff';document.getElementById('cb-cct-swatch').style.background='#ffffff';document.getElementById('cb-cct-label').textContent='#ffffff';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#ffffff;cursor:pointer;border:2px solid var(--border2);flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#000000';document.getElementById('cb-cct-swatch').style.background='#000000';document.getElementById('cb-cct-label').textContent='#000000';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#000000;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#4956a5';document.getElementById('cb-cct-swatch').style.background='#4956a5';document.getElementById('cb-cct-label').textContent='#4956a5';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#4956a5;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#e05252';document.getElementById('cb-cct-swatch').style.background='#e05252';document.getElementById('cb-cct-label').textContent='#e05252';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#e05252;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#38b27a';document.getElementById('cb-cct-swatch').style.background='#38b27a';document.getElementById('cb-cct-label').textContent='#38b27a';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#38b27a;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#f5c842';document.getElementById('cb-cct-swatch').style.background='#f5c842';document.getElementById('cb-cct-label').textContent='#f5c842';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#f5c842;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#c97ae8';document.getElementById('cb-cct-swatch').style.background='#c97ae8';document.getElementById('cb-cct-label').textContent='#c97ae8';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#c97ae8;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#ff6b35';document.getElementById('cb-cct-swatch').style.background='#ff6b35';document.getElementById('cb-cct-label').textContent='#ff6b35';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#ff6b35;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#4facfe';document.getElementById('cb-cct-swatch').style.background='#4facfe';document.getElementById('cb-cct-label').textContent='#4facfe';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#4facfe;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#d4af37';document.getElementById('cb-cct-swatch').style.background='#d4af37';document.getElementById('cb-cct-label').textContent='#d4af37';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#d4af37;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div><div onclick="document.getElementById('cell-border-color').value='#f06292';document.getElementById('cb-cct-swatch').style.background='#f06292';document.getElementById('cb-cct-label').textContent='#f06292';updateCellBorders()" style="width:22px;height:22px;border-radius:5px;background:#f06292;cursor:pointer;border:2px solid transparent;flex-shrink:0" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform=''"></div></div><div style="position:relative;margin-bottom:8px"><div class="custom-color-trigger" onclick="document.getElementById('cell-border-color').click()"><div class="cct-swatch" id="cb-cct-swatch" style="background:#4956a5"></div><span class="cct-label" id="cb-cct-label">#4956a5</span><span class="cct-arrow"><i class="fa-solid fa-eye-dropper"></i></span></div><input type="color" value="#4956a5" id="cell-border-color" style="position:absolute;opacity:0;width:0;height:0;top:0;left:0" oninput="document.getElementById('cb-cct-swatch').style.background=this.value;document.getElementById('cb-cct-label').textContent=this.value;updateCellBorders()" onchange="document.getElementById('cb-cct-swatch').style.background=this.value;document.getElementById('cb-cct-label').textContent=this.value;updateCellBorders()"></div><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;min-width:36px">Width</span><input type="range" min="0" max="16" value="0" id="cell-border-width" style="flex:1;accent-color:var(--accent)" oninput="updateCellBorders();document.getElementById('cbw-val').textContent=this.value+'px'"><span id="cbw-val" style="font-size:11px;color:var(--accent);min-width:28px;font-weight:700;text-align:right">0px</span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;min-width:36px">Style</span><select id="cell-border-style" onchange="updateCellBorders()" style="flex:1;padding:5px 8px;border-radius:6px;border:1.5px solid var(--border2);font-size:12px;background:var(--surface);color:var(--text);font-family:'Outfit',sans-serif"><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option><option value="double">Double</option></select></div></div><div class="panel-label">Gap & Corners</div><div class="control-row"><div class="control-label">Cell Gap <span id="gap-val">8px</span></div><input type="range" min="0" max="40" value="8" oninput="updateGap(this.value)"></div><div class="control-row"><div class="control-label">Rounded Corners <span id="radius-val">0px</span></div><input type="range" min="0" max="48" value="0" oninput="updateRadius(this.value)"></div><div class="panel-label">Filters</div><div class="filter-grid"><button class="filter-pill active" data-filter="none" onclick="setFilter(this)">None</button><button class="filter-pill" data-filter="grayscale(100%)" onclick="setFilter(this)">B & W</button><button class="filter-pill" data-filter="sepia(90%)" onclick="setFilter(this)">Sepia</button><button class="filter-pill" data-filter="saturate(200%) contrast(110%)" onclick="setFilter(this)">Vivid</button><button class="filter-pill" data-filter="contrast(160%)" onclick="setFilter(this)">Contrast</button><button class="filter-pill" data-filter="brightness(130%) saturate(70%)" onclick="setFilter(this)">Fade</button><button class="filter-pill" data-filter="hue-rotate(200deg) saturate(120%)" onclick="setFilter(this)">Cool</button><button class="filter-pill" data-filter="hue-rotate(30deg) saturate(160%)" onclick="setFilter(this)">Warm</button><button class="filter-pill" data-filter="invert(85%) hue-rotate(180deg)" onclick="setFilter(this)">Invert</button><button class="filter-pill" data-filter="contrast(130%) brightness(105%) saturate(140%)" onclick="setFilter(this)">Punch</button></div><div class="panel-label">Adjustments</div><div class="control-row"><div class="control-label">Brightness <span id="brightness-val">100%</span></div><input type="range" min="40" max="160" value="100" oninput="updateBrightness(this.value)"></div><div class="control-row"><div class="control-label">Saturation <span id="sat-val">100%</span></div><input type="range" min="0" max="200" value="100" oninput="updateSat(this.value)"></div><div class="panel-label">Shadow</div><div class="control-row"><div class="control-label">Canvas Shadow <span id="shadow-val">Medium</span></div><input type="range" min="0" max="4" value="2" oninput="updateShadow(this.value)"></div></div></div></aside><div class="canvas-area"><div class="canvas-toolbar"><div class="ctbar-group"><button class="tool-btn" onclick="changeZoom(-15)" title="Zoom out"><i class="fa-solid fa-magnifying-glass-minus"></i></button><div class="zoom-label" id="zoom-label">100%</div><button class="tool-btn" onclick="changeZoom(15)" title="Zoom in"><i class="fa-solid fa-magnifying-glass-plus"></i></button><button class="tool-btn" onclick="resetZoom()" style="font-size:11px;width:40px" title="Fit to screen"><i class="fa-solid fa-expand"></i></button></div><div class="tdivider"></div><div class="ctbar-group"><button class="tool-btn" onclick="undo()" title="Undo"><i class="fa-solid fa-arrow-rotate-left"></i></button><button class="tool-btn" onclick="redo()" title="Redo"><i class="fa-solid fa-arrow-rotate-right"></i></button></div><div class="tdivider"></div><div class="ctbar-group"><button class="tool-btn" onclick="shufflePhotos()" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button><button class="tool-btn" onclick="autoFill()" title="Auto Fill"><i class="fa-solid fa-bolt"></i></button></div><div class="canvas-info"><span class="cbadge" id="size-badge">800 x 800</span><span id="fill-info">0/0 filled</span></div></div><div class="canvas-scroll" id="canvas-scroll"><div id="collage-canvas"><canvas id="fabric-text-layer"></canvas></div></div></div><div class="swap-banner" id="swap-banner"><span><i class="fa-solid fa-arrow-right-arrow-left"></i> Click any cell to swap</span><button class="swap-cancel-btn" onclick="cancelSwap()"><i class="fa-solid fa-xmark"></i> Cancel</button></div><div class="right-panel"><div class="rp-header">Properties</div><div id="rp-global-actions"></div><div class="rp-body" id="rp-body"><div class="no-sel"><div class="ns-icon"><i class="fa-solid fa-arrow-pointer"></i></div>Select a cell or text layer to edit</div></div><div class="rp-ad-slot" id="rp-ad-slot"><div class="rp-ad-inner"><div class="rp-ad-label">Advertisement</div><div class="rp-ad-box" id="ad-box"></div></div></div></div></div><nav class="mob-nav"><button class="mob-nav-btn" id="mn-props" onclick="mobNav('props',this)"><span class="mni"><i class="fa-solid fa-sliders"></i></span>Props </button><button class="mob-nav-btn active" id="mn-layouts" onclick="mobNav('layouts',this)"><span class="mni"><i class="fa-solid fa-table-cells-large"></i></span>Layouts </button><button class="mob-nav-btn" id="mn-photos" onclick="mobNav('photos',this)"><span class="mni"><i class="fa-solid fa-image"></i></span>Photos </button><button class="mob-nav-btn" id="mn-occasions" onclick="mobNav('occasions',this)"><span class="mni"><i class="fa-solid fa-cake-candles"></i></span>Templates </button><button class="mob-nav-btn" id="mn-elements" onclick="mobNav('elements',this)"><span class="mni"><i class="fa-solid fa-shapes"></i></span>Elem </button><button class="mob-nav-btn" id="mn-text" onclick="mobNav('text',this)"><span class="mni"><i class="fa-solid fa-font"></i></span>Text </button><button class="mob-nav-btn" id="mn-style" onclick="mobNav('style',this)"><span class="mni"><i class="fa-solid fa-palette"></i></span>Style </button></nav><div class="mob-backdrop" id="mob-backdrop" onclick="closeAllMobPanels()"></div><div class="crop-modal-overlay" id="crop-modal"><div class="crop-modal"><h2>Crop & Position</h2><p style="font-size:12px;color:var(--text-muted);margin-bottom:10px"> Drag to pan Ã‚· Scroll/pinch to zoom Ã‚· Viewport matches cell shape </p><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div style="font-size:11px;font-weight:600;color:var(--text-muted)">Cell ratio:</div><div id="crop-ratio-badge" style="font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-xlight);padding:2px 10px;border-radius:20px">1 : 1</div><div style="font-size:11px;color:var(--text-muted)" id="crop-cell-size"></div></div><center><div class="crop-viewport" id="crop-viewport"><img id="crop-img" src draggable="false"><div class="crop-grid"></div><div class="crop-grid-inner"></div></div></center><div class="control-row" style="margin-bottom:8px"><div class="control-label">Zoom <span id="crop-zoom-val">100%</span></div><input type="range" min="100" max="500" value="100" id="crop-zoom-slider" oninput="setCropZoom(this.value)"></div><div style="display:flex;gap:8px;margin-top:8px"><button type="button" class="btn btn-ghost btn-sm" onclick="resetCrop()" style="flex:1;justify-content:center"><i class="fa-solid fa-arrow-rotate-left"></i> Reset</button><button type="button" class="btn btn-ghost btn-sm" onclick="closeModal('crop-modal')" style="flex:1;justify-content:center">Cancel</button><button type="button" class="btn btn-primary btn-sm" onclick="applyCrop()" style="flex:1;justify-content:center"><i class="fa-solid fa-check"></i> Apply</button></div></div></div><div class="modal-overlay" id="export-modal"><div class="modal export-modal-wide" style="padding:0;overflow:hidden;display:flex;max-width:740px"><div class="exp-left" style="flex:1;min-width:0;padding:28px;display:flex;flex-direction:column;gap:0"><div style="display:flex;align-items:center;gap:12px;margin-bottom:22px"><div style="width:40px;height:40px;background:var(--accent-xlight);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--accent)"><i class="fa-solid fa-download"></i></div><div><h2 style="margin-bottom:1px;font-size:20px">Export Collage</h2><div style="font-size:12px;color:var(--text-muted)">Choose format &amp; quality</div></div></div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:8px">Filename</div><div class="filename-row" style="margin-bottom:14px"><span style="font-size:16px;flex-shrink:0;color:var(--text-muted)"><i class="fa-solid fa-file-lines"></i></span><input type="text" id="exp-filename" value="my-collage" placeholder="my-collage" maxlength="60"><span class="filename-ext" id="exp-filename-ext">.png</span></div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:8px">Format</div><div class="export-opts" style="margin-bottom:14px"><div class="export-card selected" id="exp-png" onclick="selectExportFmt('png')"><div class="ec-icon"><i class="fa-solid fa-image"></i></div><div class="ec-title">PNG</div><div class="ec-sub">Lossless Ã‚· Transparent</div></div><div class="export-card" id="exp-jpg" onclick="selectExportFmt('jpg')"><div class="ec-icon"><i class="fa-solid fa-camera-retro"></i></div><div class="ec-title">JPEG</div><div class="ec-sub">Smaller Ã‚· Adjustable</div></div></div><div id="jpg-quality-row" style="display:none;background:var(--surface2);border-radius:10px;padding:10px 14px;margin-bottom:12px;border:1.5px solid var(--border)"><div class="quality-row" style="margin-bottom:0"><label>Quality</label><input type="range" min="10" max="100" value="92" id="jpg-quality" oninput="document.getElementById('jpg-q-val').textContent=this.value+'%'"><span id="jpg-q-val">92%</span></div></div><div style="background:var(--surface2);border-radius:10px;padding:12px 14px;border:1.5px solid var(--border);margin-bottom:22px"><div class="control-label" style="margin-bottom:6px;display:flex;justify-content:space-between;align-items:center"><span>Scale <span id="exp-scale-val">2x</span></span><span id="exp-pixel-size" style="font-size:10px;color:var(--accent);font-weight:700;background:var(--accent-xlight);padding:2px 8px;border-radius:20px;letter-spacing:.3px"></span></div><input type="range" min="1" max="4" value="2" id="exp-scale" oninput="
-          document.getElementById('exp-scale-val').textContent=this.value+'x';
-          document.getElementById('exp-pixel-size').textContent=Math.round(canvasW*this.value)+' x '+Math.round(canvasH*this.value)+' px';
-        " style="width:100%;accent-color:var(--accent)"><div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-light);margin-top:4px;font-weight:600"><span>Draft</span><span>Std</span><span>HQ</span><span>Ultra</span></div></div><div style="display:flex;gap:10px;margin-top:auto"><button class="btn btn-ghost" style="flex:1;justify-content:center" onclick="closeModal('export-modal')"><i class="fa-solid fa-xmark"></i> Cancel</button><button class="btn btn-primary" style="flex:2;justify-content:center;font-size:14px;padding:10px 20px" onclick="doExportWithOptions()"><i class="fa-solid fa-download"></i> Download</button></div></div><div class="exp-right" id="exp-ad-box"></div></div></div><div class="modal-overlay" id="text-modal"><div class="modal"><h2>Add Text</h2><div class="modal-sub">Create a styled text overlay on your collage</div><div class="form-group"><div class="form-label">Content</div><textarea class="prop-input" id="text-input" placeholder="Type here..."></textarea></div><div class="form-group"><div class="form-label">Font</div><div class="font-btns"><button class="font-btn active" data-font="'Outfit',sans-serif" onclick="selFont(this)">Modern</button><button class="font-btn" data-font="'Fraunces',serif" onclick="selFont(this)" style="font-family:'Fraunces',serif">Elegant</button><button class="font-btn" data-font="monospace" onclick="selFont(this)" style="font-family:monospace">Mono</button><button class="font-btn" data-font="cursive" onclick="selFont(this)" style="font-family:cursive">Script</button><button class="font-btn" data-font="fantasy" onclick="selFont(this)" style="font-family:fantasy">Display</button></div></div><div class="form-group"><div class="slider-row"><label>Size</label><input type="range" min="10" max="120" value="36" id="txt-sz" oninput="document.getElementById('txt-sz-v').textContent=this.value+'px'"><span id="txt-sz-v">36px</span></div></div><div class="form-group"><div class="form-label">Color</div><div class="txt-clr-row"><div class="txt-sw selected" style="background:#ffffff" data-c="#ffffff" onclick="selTxtClr(this)"></div><div class="txt-sw" style="background:#1a1c2e" data-c="#1a1c2e" onclick="selTxtClr(this)"></div><div class="txt-sw" style="background:#4956a5" data-c="#4956a5" onclick="selTxtClr(this)"></div><div class="txt-sw" style="background:#f5c842" data-c="#f5c842" onclick="selTxtClr(this)"></div><div class="txt-sw" style="background:#e05252" data-c="#e05252" onclick="selTxtClr(this)"></div><div class="txt-sw" style="background:#38b27a" data-c="#38b27a" onclick="selTxtClr(this)"></div><div class="txt-sw" style="background:#f093fb" data-c="#f093fb" onclick="selTxtClr(this)"></div><input type="color" style="width:26px;height:26px;border-radius:6px;border:1.5px solid var(--border2);cursor:pointer;padding:1px" oninput="_txtClr=this.value"></div></div><div class="form-group"><div class="form-label">Style Options</div><div style="display:flex;gap:5px"><button class="font-btn" id="bold-btn" onclick="this.classList.toggle('active');_txtBold=!_txtBold"><b>B</b></button><button class="font-btn" id="italic-btn" onclick="this.classList.toggle('active');_txtItalic=!_txtItalic"><i>I</i></button><button class="font-btn active" id="shadow-btn" onclick="this.classList.toggle('active');_txtShadow=!_txtShadow">Shadow</button><button class="font-btn" id="bg-btn" onclick="this.classList.toggle('active');_txtBg=!_txtBg">Bg Box</button></div></div><div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal('text-modal')">Cancel</button><button class="btn btn-primary" onclick="addText()"><i class="fa-solid fa-check"></i> Add Text</button></div></div></div><div class="modal-overlay" id="sticker-modal"><div class="modal"><h2>Add Sticker</h2><div class="modal-sub">Click any emoji to place it on your collage</div><div class="sticker-grid" id="sticker-grid"></div><div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal('sticker-modal')">Close</button></div></div></div><div class="ctx-menu" id="ctx-menu" style="display:none"></div><div class="export-progress-overlay" id="export-progress-overlay"><div class="export-progress-card"><div class="export-progress-icon"><i class="fa-solid fa-palette"></i></div><div class="export-progress-title">Exporting Collage</div><div class="export-progress-step" id="exp-prog-step">Preparing canvasÃ¢â‚¬Â¦</div><div class="export-progress-bar-wrap"><div class="export-progress-bar" id="exp-prog-bar"></div></div><div class="export-progress-pct" id="exp-prog-pct">0%</div></div></div><div class="modal-overlay" id="generic-confirm-modal"><div class="modal" style="max-width:380px;text-align:center;padding:32px 28px"><div id="gcm-icon" style="font-size:40px;margin-bottom:12px;color:var(--danger)"><i class="fa-solid fa-trash-can"></i></div><h2 id="gcm-title" style="font-size:20px;margin-bottom:8px">Confirm</h2><p id="gcm-msg" style="font-size:13px;color:var(--text-muted);margin-bottom:24px;line-height:1.6">Are you sure?</p><div style="display:flex;gap:10px"><button class="btn btn-ghost" style="flex:1;justify-content:center" onclick="closeModal('generic-confirm-modal')">Cancel</button><button id="gcm-ok" class="btn btn-primary" style="flex:1;justify-content:center;background:var(--danger);border-color:var(--danger);box-shadow:0 2px 8px rgba(224,82,82,.3)"><i class="fa-solid fa-check"></i> Confirm</button></div></div></div><div class="modal-overlay" id="confirm-clear-modal"><div class="modal" style="max-width:360px;text-align:center;padding:32px 28px"><div style="font-size:40px;margin-bottom:12px;color:var(--danger)"><i class="fa-solid fa-trash-can"></i></div><h2 style="font-size:20px;margin-bottom:8px">Clear Canvas?</h2><p style="font-size:13px;color:var(--text-muted);margin-bottom:24px;line-height:1.6">This will remove all photos, text and elements. This action cannot be undone.</p><div style="display:flex;gap:10px"><button class="btn btn-ghost" style="flex:1;justify-content:center" onclick="closeModal('confirm-clear-modal')">Cancel</button><button class="btn btn-primary" style="flex:1;justify-content:center;background:var(--danger);border-color:var(--danger);box-shadow:0 2px 8px rgba(224,82,82,.3)" onclick="closeModal('confirm-clear-modal');doClearCanvas()"><i class="fa-solid fa-trash"></i> Clear All</button></div></div></div><div id="toast"><span id="t-icon"><i class="fa-solid fa-check"></i></span><span id="t-msg">Done!</span></div><script src="../assets/js/occasion-templates.js"></script><script src="../assets/js/tool.js?v=38"></script><script src="../assets/js/common.js?v=38"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Collage Maker Studio — 100+ Layouts & 4K Export | Daily1Step</title>
+<meta name="description" content="Free online photo collage maker studio with 100+ modern grid layouts, custom aspect ratios, aesthetic backgrounds, text overlays, and 4K ultra HD export.">
+<link rel="canonical" href="https://bypyay.github.io/collagetools/collage-maker/">
+<link rel="stylesheet" href="../assets/css/studio-pro.css?v=2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Daily1Step Collage Studio",
+  "url": "https://bypyay.github.io/collagetools/collage-maker/",
+  "description": "Ultra-modern photo collage studio with 100+ layouts, filters, text overlays, and 4K export.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "All modern web browsers",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+</head>
+<body class="pro-studio">
+
+<!-- Studio Header -->
+<header class="studio-header">
+  <a href="../index.html" class="brand-wrap">
+    <div class="brand-icon"><i class="fa-solid fa-table-cells-large"></i></div>
+    <div class="brand-title">Daily1Step <span class="highlight">Collage</span></div>
+    <span class="brand-badge">STUDIO PRO</span>
+  </a>
+
+  <div class="header-actions">
+    <a href="../index.html" class="btn-header btn-header-ghost">
+      <i class="fa-solid fa-grid-2"></i> All Tools
+    </a>
+    <button class="btn-header btn-header-danger" onclick="clearAllCanvas()" title="Clear Canvas">
+      <i class="fa-solid fa-trash"></i> Clear
+    </button>
+    <button class="btn-header btn-header-primary" onclick="openExportModalPro()">
+      <i class="fa-solid fa-download"></i> Export Collage
+    </button>
+  </div>
+</header>
+
+<div class="studio-main-body">
+  <!-- Left Navigation Rail -->
+  <nav class="nav-rail">
+    <button class="nav-rail-btn active" onclick="switchDrawerTab('layouts', this)" title="Layouts">
+      <i class="fa-solid fa-table-cells-large"></i>
+      <span>Layout</span>
+    </button>
+    <button class="nav-rail-btn" onclick="switchDrawerTab('photos', this)" title="Photos">
+      <i class="fa-solid fa-image"></i>
+      <span>Photos</span>
+    </button>
+    <button class="nav-rail-btn" onclick="switchDrawerTab('style', this)" title="Style & Colors">
+      <i class="fa-solid fa-palette"></i>
+      <span>Style</span>
+    </button>
+    <button class="nav-rail-btn" onclick="switchDrawerTab('filters', this)" title="Filters & Adjust">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <span>Filters</span>
+    </button>
+    <button class="nav-rail-btn" onclick="switchDrawerTab('text', this)" title="Text Overlay">
+      <i class="fa-solid fa-font"></i>
+      <span>Text</span>
+    </button>
+    <button class="nav-rail-btn" onclick="switchDrawerTab('stickers', this)" title="Stickers">
+      <i class="fa-solid fa-shapes"></i>
+      <span>Stickers</span>
+    </button>
+  </nav>
+
+  <!-- Left Configuration Drawer -->
+  <aside class="sidebar-drawer">
+    <!-- 1. Layouts Panel -->
+    <div id="drawer-layouts" class="drawer-content active">
+      <div class="drawer-section-title">Aspect Ratio &amp; Canvas Preset</div>
+      <div class="aspect-pills-grid">
+        <button class="aspect-pill active" onclick="setAspectRatio(800,800,this)">
+          1:1 <span class="sub">Square</span>
+        </button>
+        <button class="aspect-pill" onclick="setAspectRatio(800,1000,this)">
+          4:5 <span class="sub">IG Portrait</span>
+        </button>
+        <button class="aspect-pill" onclick="setAspectRatio(720,1280,this)">
+          9:16 <span class="sub">Story / Reel</span>
+        </button>
+        <button class="aspect-pill" onclick="setAspectRatio(1280,720,this)">
+          16:9 <span class="sub">Widescreen</span>
+        </button>
+        <button class="aspect-pill" onclick="setAspectRatio(1000,750,this)">
+          4:3 <span class="sub">Standard</span>
+        </button>
+        <button class="aspect-pill" onclick="setAspectRatio(800,1200,this)">
+          2:3 <span class="sub">Print 4×6</span>
+        </button>
+      </div>
+
+      <div class="drawer-section-title">Popular Layout Grids</div>
+      <div class="layout-cards-grid">
+        <div class="layout-card-pro active" onclick="selectLayoutPro('5-mag', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;">
+            <div class="cell"></div><div class="cell"></div>
+            <div class="cell" style="grid-column:span 2; display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px;">
+              <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            </div>
+          </div>
+          <div class="layout-card-label">5 Magazine</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('4-grid', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+          </div>
+          <div class="layout-card-label">4 Grid (2×2)</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('2-side', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:1fr 1fr;">
+            <div class="cell"></div><div class="cell"></div>
+          </div>
+          <div class="layout-card-label">2 Split Side</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('3-left-big', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:1.2fr 1fr; grid-template-rows:1fr 1fr;">
+            <div class="cell" style="grid-row:span 2;"></div><div class="cell"></div><div class="cell"></div>
+          </div>
+          <div class="layout-card-label">3 Triptych</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('6-grid', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr;">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+          </div>
+          <div class="layout-card-label">6 Bento (2×3)</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('9-grid', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr);">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+          </div>
+          <div class="layout-card-label">9 Best Nine</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('8-grid', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:repeat(4,1fr); grid-template-rows:1fr 1fr;">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+          </div>
+          <div class="layout-card-label">8 Photo Strip</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('12-grid', this)">
+          <div class="layout-mini-preview" style="grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(3,1fr);">
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+          </div>
+          <div class="layout-card-label">12 Mosaic</div>
+        </div>
+
+        <div class="layout-card-pro" onclick="selectLayoutPro('1-full', this)">
+          <div class="layout-mini-preview">
+            <div class="cell" style="width:100%;height:100%;"></div>
+          </div>
+          <div class="layout-card-label">1 Full Frame</div>
+        </div>
+      </div>
+
+      <div class="drawer-section-title">Custom Grid Builder</div>
+      <div style="display:flex; gap:10px; margin-bottom:10px;">
+        <div style="flex:1;">
+          <label style="font-size:0.76rem; font-weight:700; color:var(--text-muted);">Columns</label>
+          <input type="number" id="customGridCols" value="3" min="1" max="6" style="width:100%; padding:8px; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:0.9rem;">
+        </div>
+        <div style="flex:1;">
+          <label style="font-size:0.76rem; font-weight:700; color:var(--text-muted);">Rows</label>
+          <input type="number" id="customGridRows" value="3" min="1" max="6" style="width:100%; padding:8px; border:1px solid var(--border-color); border-radius:var(--radius-sm); font-size:0.9rem;">
+        </div>
+      </div>
+      <button class="btn-header btn-header-primary" style="width:100%; justify-content:center;" onclick="applyNxMGrid()">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Custom Grid
+      </button>
+    </div>
+
+    <!-- 2. Photos Panel -->
+    <div id="drawer-photos" class="drawer-content">
+      <div class="dropzone-pro" onclick="document.getElementById('proFileInput').click()">
+        <div class="dropzone-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <div class="dropzone-title">Click to Upload Photos</div>
+        <div class="dropzone-sub">or drag &amp; drop multiple images here</div>
+      </div>
+      <input type="file" id="proFileInput" accept="image/*" multiple style="display:none;">
+      <input type="file" id="singleCellInput" accept="image/*" style="display:none;">
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <span style="font-size:0.82rem; font-weight:700;">Uploaded (<span id="photoCountBadge">0</span>)</span>
+        <div style="display:flex; gap:6px;">
+          <button class="btn-header btn-header-ghost" style="padding:4px 10px; font-size:0.78rem;" onclick="shuffleAllPhotos()">
+            <i class="fa-solid fa-shuffle"></i> Shuffle
+          </button>
+          <button class="btn-header btn-header-ghost" style="padding:4px 10px; font-size:0.78rem;" onclick="autoFillSlots()">
+            <i class="fa-solid fa-bolt"></i> Auto Fill
+          </button>
+        </div>
+      </div>
+
+      <div class="tray-photos-grid" id="trayPhotosGrid"></div>
+    </div>
+
+    <!-- 3. Style Panel -->
+    <div id="drawer-style" class="drawer-content">
+      <div class="drawer-section-title">Spacing &amp; Corners</div>
+      <div class="slider-control-row">
+        <div class="slider-header">
+          <span>Cell Spacing (Gap)</span>
+          <span class="val" id="valGap">8px</span>
+        </div>
+        <input type="range" min="0" max="40" value="8" class="pro-range" oninput="updateGapPro(this.value)">
+      </div>
+
+      <div class="slider-control-row">
+        <div class="slider-header">
+          <span>Corner Radius</span>
+          <span class="val" id="valRadius">6px</span>
+        </div>
+        <input type="range" min="0" max="40" value="6" class="pro-range" oninput="updateRadiusPro(this.value)">
+      </div>
+
+      <div class="slider-control-row">
+        <div class="slider-header">
+          <span>Outer Margin</span>
+          <span class="val" id="valMargin">8px</span>
+        </div>
+        <input type="range" min="0" max="40" value="8" class="pro-range" oninput="updateMarginPro(this.value)">
+      </div>
+
+      <div class="drawer-section-title">Background Color</div>
+      <div class="color-swatches-grid">
+        <div class="color-swatch-item active" style="background:#ffffff; border:1px solid #cbd5e1;" onclick="setBgColorPro('#ffffff', this)" title="White"></div>
+        <div class="color-swatch-item" style="background:#fdf6e2;" onclick="setBgColorPro('#fdf6e2', this)" title="Warm Cream"></div>
+        <div class="color-swatch-item" style="background:#fce7f3;" onclick="setBgColorPro('#fce7f3', this)" title="Pastel Pink"></div>
+        <div class="color-swatch-item" style="background:#e0f2fe;" onclick="setBgColorPro('#e0f2fe', this)" title="Sky Blue"></div>
+        <div class="color-swatch-item" style="background:#dcfce7;" onclick="setBgColorPro('#dcfce7', this)" title="Mint Green"></div>
+        <div class="color-swatch-item" style="background:#f3e8ff;" onclick="setBgColorPro('#f3e8ff', this)" title="Lavender"></div>
+        <div class="color-swatch-item" style="background:#0f172a;" onclick="setBgColorPro('#0f172a', this)" title="Obsidian Dark"></div>
+        <div class="color-swatch-item" style="background:#6366f1;" onclick="setBgColorPro('#6366f1', this)" title="Indigo"></div>
+      </div>
+
+      <div class="drawer-section-title">Gradient Background</div>
+      <div style="display:flex; gap:10px; align-items:center; margin-bottom:10px;">
+        <input type="color" id="gradFromColor" value="#6366f1" style="height:36px; flex:1; border:none; border-radius:6px; cursor:pointer;">
+        <span style="font-size:0.9rem; color:var(--text-muted);">&rarr;</span>
+        <input type="color" id="gradToColor" value="#ec4899" style="height:36px; flex:1; border:none; border-radius:6px; cursor:pointer;">
+        <select id="gradAngleSelect" style="padding:6px 10px; border-radius:6px; border:1px solid var(--border-color); font-size:0.82rem; font-family:inherit;">
+          <option value="135deg">135°</option>
+          <option value="90deg">90°</option>
+          <option value="180deg">180°</option>
+          <option value="45deg">45°</option>
+        </select>
+      </div>
+      <button class="btn-header btn-header-ghost" style="width:100%; justify-content:center; font-size:0.82rem;" onclick="applyGradientPro()">
+        Apply Gradient
+      </button>
+    </div>
+
+    <!-- 4. Filters Panel -->
+    <div id="drawer-filters" class="drawer-content">
+      <div class="drawer-section-title">Photo Filters</div>
+      <div class="filter-cards-grid">
+        <button class="filter-card-item active" onclick="setFilterPro('none', this)">Normal</button>
+        <button class="filter-card-item" onclick="setFilterPro('vivid', this)">Vivid</button>
+        <button class="filter-card-item" onclick="setFilterPro('warm', this)">Warm</button>
+        <button class="filter-card-item" onclick="setFilterPro('cool', this)">Cool</button>
+        <button class="filter-card-item" onclick="setFilterPro('vintage', this)">Vintage</button>
+        <button class="filter-card-item" onclick="setFilterPro('bw', this)">B&amp;W</button>
+        <button class="filter-card-item" onclick="setFilterPro('noir', this)">Noir</button>
+        <button class="filter-card-item" onclick="setFilterPro('cinematic', this)">Cinematic</button>
+      </div>
+
+      <div class="drawer-section-title">Color Adjustments</div>
+      <div class="slider-control-row">
+        <div class="slider-header">
+          <span>Brightness</span>
+          <span class="val" id="valBrightness">100%</span>
+        </div>
+        <input type="range" min="50" max="150" value="100" class="pro-range" oninput="updateBrightnessPro(this.value)">
+      </div>
+
+      <div class="slider-control-row">
+        <div class="slider-header">
+          <span>Contrast</span>
+          <span class="val" id="valContrast">100%</span>
+        </div>
+        <input type="range" min="50" max="150" value="100" class="pro-range" oninput="updateContrastPro(this.value)">
+      </div>
+
+      <div class="slider-control-row">
+        <div class="slider-header">
+          <span>Saturation</span>
+          <span class="val" id="valSaturation">100%</span>
+        </div>
+        <input type="range" min="0" max="200" value="100" class="pro-range" oninput="updateSaturationPro(this.value)">
+      </div>
+    </div>
+
+    <!-- 5. Text Panel -->
+    <div id="drawer-text" class="drawer-content">
+      <div class="drawer-section-title">Add Caption &amp; Title</div>
+      <input type="text" id="inputCaptionText" placeholder="Enter headline or caption..." style="width:100%; padding:10px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.9rem; margin-bottom:12px; font-family:inherit;">
+
+      <div style="margin-bottom:12px;">
+        <label style="font-size:0.76rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">Font Style</label>
+        <select id="selectTextFont" style="width:100%; padding:8px 12px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.88rem; font-family:inherit;">
+          <option value="'Plus Jakarta Sans', sans-serif">Modern (Plus Jakarta Sans)</option>
+          <option value="'Outfit', sans-serif">Clean (Outfit)</option>
+          <option value="'Playfair Display', serif">Luxury Serif (Playfair)</option>
+          <option value="'Pacifico', cursive">Pacifico Script</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
+          <option value="'Bebas Neue', sans-serif">Bebas Bold Headline</option>
+          <option value="'Great Vibes', cursive">Great Vibes Elegant</option>
+          <option value="'Montserrat', sans-serif">Montserrat Geometric</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <label style="font-size:0.76rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">Text Color</label>
+        <input type="color" id="inputTextColor" value="#ffffff" style="width:100%; height:38px; border:none; border-radius:6px; cursor:pointer;">
+      </div>
+
+      <button class="btn-header btn-header-primary" style="width:100%; justify-content:center;" onclick="addTextLayerPro()">
+        <i class="fa-solid fa-plus"></i> Stamp Text on Canvas
+      </button>
+    </div>
+
+    <!-- 6. Stickers Panel -->
+    <div id="drawer-stickers" class="drawer-content">
+      <div class="drawer-section-title">Emoji &amp; Decorative Stamps</div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">Click any sticker to stamp it onto the collage canvas:</p>
+      <div style="display:grid; grid-template-columns:repeat(6, 1fr); gap:10px; text-align:center; font-size:1.6rem;">
+        <span style="cursor:pointer;" onclick="addStickerPro('❤️')">❤️</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🎉')">🎉</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🎂')">🎂</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('⭐')">⭐</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🌸')">🌸</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('👑')">👑</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🔥')">🔥</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('✨')">✨</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('📸')">📸</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🎈')">🎈</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🥂')">🥂</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🎁')">🎁</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🎀')">🎀</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🏖️')">🏖️</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🌺')">🌺</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🌟')">🌟</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🍕')">🍕</span>
+        <span style="cursor:pointer;" onclick="addStickerPro('🚀')">🚀</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Center Workspace Area -->
+  <main class="canvas-workspace">
+    <div class="workspace-top-bar">
+      <div class="zoom-controls-group">
+        <button class="zoom-btn" onclick="changeZoomPro(-0.1)" title="Zoom Out"><i class="fa-solid fa-minus"></i></button>
+        <span class="zoom-pct-badge" id="zoomPctBadge">100%</span>
+        <button class="zoom-btn" onclick="changeZoomPro(0.1)" title="Zoom In"><i class="fa-solid fa-plus"></i></button>
+        <button class="zoom-btn" onclick="resetZoomPro()" title="Reset Zoom" style="font-size:0.75rem; width:44px;">100%</button>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span class="count-chip" id="canvasSizeBadge" style="background:transparent; border-color:var(--border-color);">800 × 800</span>
+        <span class="count-chip" id="fillCountBadge" style="background:var(--primary-light); color:var(--primary); border-color:transparent;">0 / 5 filled</span>
+        <button class="zoom-btn" onclick="shuffleAllPhotos()" title="Shuffle Photos"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="zoom-btn" onclick="autoFillSlots()" title="Auto Fill"><i class="fa-solid fa-bolt"></i></button>
+      </div>
+    </div>
+
+    <div class="workspace-viewport">
+      <div class="canvas-shadow-container" id="canvasShadowContainer">
+        <canvas id="proCanvas" width="800" height="800"></canvas>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Export Modal PRO -->
+<div class="modal-overlay-pro" id="proExportModal">
+  <div class="modal-card-pro">
+    <div class="modal-header-pro">
+      <h3>Export Collage in High Resolution</h3>
+      <button class="zoom-btn" onclick="closeExportModalPro()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <p class="modal-sub-pro">Choose format and resolution multiplier for print-ready quality.</p>
+
+    <div style="margin-bottom:14px;">
+      <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">Filename</label>
+      <input type="text" id="exportFilenameInput" value="daily1step-collage" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.92rem; font-family:inherit;">
+    </div>
+
+    <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:6px;">Format</label>
+    <div class="export-format-selector">
+      <div class="export-card-opt active" data-fmt="png" onclick="setExportFmtPro('png', this)">
+        <div class="ext">PNG</div>
+        <div class="desc">Lossless · Crisp</div>
+      </div>
+      <div class="export-card-opt" data-fmt="jpg" onclick="setExportFmtPro('jpg', this)">
+        <div class="ext">JPEG</div>
+        <div class="desc">Compact · Photo</div>
+      </div>
+      <div class="export-card-opt" data-fmt="webp" onclick="setExportFmtPro('webp', this)">
+        <div class="ext">WebP</div>
+        <div class="desc">Modern Web</div>
+      </div>
+      <div class="export-card-opt" data-fmt="pdf" onclick="setExportFmtPro('pdf', this)">
+        <div class="ext">PDF</div>
+        <div class="desc">Print Document</div>
+      </div>
+    </div>
+
+    <div id="jpegQualityRow" style="display:none; margin-bottom:14px;">
+      <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">JPEG Quality (95%)</label>
+      <input type="range" min="60" max="100" value="95" id="jpegQualitySlider" class="pro-range">
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">Resolution / Scale</label>
+      <select id="exportScaleSelect" style="width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:var(--radius-md); font-size:0.92rem; font-family:inherit;">
+        <option value="1">Standard Definition (1× · 800 px)</option>
+        <option value="2" selected>High Definition (2× · 1600 px)</option>
+        <option value="4">Ultra HD 4K / 300 DPI Print (4× · 3200 px)</option>
+      </select>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <button class="btn-header btn-header-ghost" style="flex:1; justify-content:center;" onclick="closeExportModalPro()">Cancel</button>
+      <button class="btn-header btn-header-primary" style="flex:2; justify-content:center;" onclick="downloadCollagePro()">
+        <i class="fa-solid fa-download"></i> Download Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="../vendor/jspdf.umd.min.js"></script>
+<script src="../assets/js/studio-pro.js?v=2"></script>
+</body>
+</html>
