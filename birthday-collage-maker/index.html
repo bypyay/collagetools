@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Photo Collage Maker Online — Party Frames & Birthday Cards</title>
+<meta name="description" content="Create festive birthday photo collages with party confetti banners, celebratory balloons, and personalized birthday messages.">
+<link rel="canonical" href="https://bypyay.github.io/collagetools/tools/birthday-collage-maker/">
+<meta property="og:title" content="Birthday Photo Collage Maker Online — Party Frames & Birthday Cards">
+<meta property="og:description" content="Create festive birthday photo collages with party confetti banners, celebratory balloons, and personalized birthday messages.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bypyay.github.io/collagetools/tools/birthday-collage-maker/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="../assets/css/style.css?v=1">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="brand">Daily1Step Collage<span class="dot">.</span></a>
+    <nav class="main-nav">
+      <a href="../index.html">All Collage Tools</a>
+      <a href="../tools/collage-maker/">Collage Maker</a>
+      <a href="../tools/combine-2-photos-in-one-frame/">2 Photos</a>
+      <a href="../tools/4-photos-in-one-frame/">4 Photos</a>
+      <a href="../tools/photo-grid-maker/">Grid Maker</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Birthday Collage Maker",
+      "url": "https://bypyay.github.io/collagetools/tools/birthday-collage-maker/",
+      "description": "Create festive birthday photo collages with party confetti banners, celebratory balloons, and personalized birthday messages.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All modern browsers (Windows, Mac, iOS, Android)",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://bypyay.github.io/collagetools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Collage Tools",
+          "item": "https://bypyay.github.io/collagetools/#tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Birthday Collage Maker",
+          "item": "https://bypyay.github.io/collagetools/tools/birthday-collage-maker/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I add birthday text greetings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, add custom birthday wishes and names in vibrant typography."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<main class="tool-page">
+  <div class="container">
+    <div class="breadcrumb" style="max-width:1100px; margin:0 auto 16px;">
+      <a href="../index.html">Home</a> &gt; <a href="../index.html">Collage Tools</a> &gt; <span>Birthday Collage Maker</span>
+    </div>
+
+    <div class="tool-header">
+      <h1>Birthday Photo Collage Maker</h1>
+      <p>Celebrate special birthdays with party-themed collage frames and custom greetings.</p>
+    </div>
+
+    <!-- Ad Slot Top -->
+    <div class="ad-slot-wrap">
+      <span>Advertisement</span>
+    </div>
+
+    
+    <div class="dropzone" id="dropZone">
+      <input type="file" id="fileInput" accept="image/*" multiple>
+      <div class="dz-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </div>
+      <h3>Select or Drop Photos</h3>
+      <p>Drop multiple photos here to automatically populate the collage cells</p>
+    </div>
+
+    <div class="tool-workspace" id="workspaceArea">
+      <div class="tool-controls-panel">
+        <h3 style="font-size:1.15rem; margin-bottom:16px; color:var(--ink);">Collage Settings</h3>
+
+        <div class="control-group">
+          <label>Layout Spacing (Gap)</label>
+          <input type="range" id="spacingRange" min="0" max="30" value="12">
+        </div>
+
+        <div class="control-group">
+          <label>Corner Radius (Rounded)</label>
+          <input type="range" id="radiusRange" min="0" max="40" value="8">
+        </div>
+
+        <div class="control-row">
+          <div class="control-group">
+            <label>Background Color</label>
+            <input type="color" id="bgColor" value="#ffffff" style="height:40px; padding:2px 4px;">
+          </div>
+          <div class="control-group">
+            <label>Photo Filter</label>
+            <select id="filterSelect">
+              <option value="none" selected>Normal</option>
+              <option value="warm">Warm &amp; Sunny</option>
+              <option value="cool">Cool Blue</option>
+              <option value="vintage">Vintage Film</option>
+              <option value="grayscale">B&amp;W Grayscale</option>
+              <option value="sepia">Sepia Nostalgia</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>Caption Text (Optional)</label>
+          <input type="text" id="captionText" placeholder="e.g. Summer Memories 2026">
+        </div>
+
+        <div class="control-group">
+          <label>Export Resolution</label>
+          <select id="exportScale">
+            <option value="1">Standard Web (1080 px)</option>
+            <option value="2" selected>High Definition 2K (2160 px)</option>
+            <option value="4">Ultra HD 4K / 300 DPI Print (4320 px)</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn block success" id="exportBtn" style="margin-top:8px;">Download High-Res Collage</button>
+      </div>
+
+      <div class="collage-canvas-panel">
+        <div class="collage-canvas-wrap">
+          <canvas id="collageCanvas" width="800" height="800"></canvas>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Ad Slot Middle -->
+    <div class="ad-slot-wrap" style="margin-top:32px;">
+      <span>Advertisement</span>
+    </div>
+
+  </div>
+</main>
+
+<article class="seo-article">
+  <div class="content-container">
+    <h2>How to Create Birthday Collage Maker in 3 Easy Steps</h2>
+    <div class="step-card-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Upload Your Photos</h4>
+        <p>Drop your favorite photos into the upload box to fill the collage cells.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Customize Layout &amp; Style</h4>
+        <p>Adjust gap spacing, rounded corners, background colors, and vintage photo filters.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Export in 4K Quality</h4>
+        <p>Download your high-resolution collage in crisp PNG or JPEG up to 4K / 300 DPI for printing.</p>
+      </div>
+    </div>
+
+    <h2>Why Choose Daily1Step Birthday Collage Maker?</h2>
+    <p>Daily1Step Birthday Collage Maker runs 100% locally in your web browser using HTML5 Canvas 2D. <strong>Your personal photos are never uploaded to any remote server.</strong></p>
+    <ul>
+      <li><strong>100% Private &amp; Secure:</strong> Zero server uploads or cloud storage.</li>
+      <li><strong>Up to 4K Ultra HD Export:</strong> 300 DPI print-ready outputs for framing.</li>
+      <li><strong>No Watermarks &amp; Always Free:</strong> Unlimited downloads without signup.</li>
+      <li><strong>Cross-Device Responsive:</strong> Works seamlessly on mobile, tablet, and PC.</li>
+    </ul>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <div class="faq-list">
+      
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Can I add birthday text greetings?</span>
+            <span style="font-size:1.2rem;">+</span>
+          </button>
+          <div class="faq-answer" style="display:none;">
+            <p>Yes, add custom birthday wishes and names in vibrant typography.</p>
+          </div>
+        </div>
+        
+    </div>
+
+    <!-- Ad Slot Bottom -->
+    <div class="ad-slot-wrap" style="margin-top:40px;">
+      <span>Advertisement</span>
+    </div>
+  </div>
+</article>
+
+<script src="../assets/js/tools/birthday-collage-maker.js"></script>
+<script>
+// FAQ Accordion interaction
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var ans = btn.nextElementSibling;
+    var isOpen = ans.style.display === 'block';
+    ans.style.display = isOpen ? 'none' : 'block';
+    btn.querySelector('span:last-child').textContent = isOpen ? '+' : '−';
+  });
+});
+</script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Daily1Step Collage Tools</h4>
+        <p style="font-size:.88rem; line-height:1.6; margin-top:8px;">Fast, private, and 100% browser-based photo collage maker. Create custom grids, photo strips, polaroid montages, and 4K ultra HD downloads with zero server uploads.</p>
+      </div>
+      <div class="footer-col">
+        <h4>By Photo Count</h4>
+        <ul>
+          <li><a href="../tools/combine-2-photos-in-one-frame/">2 Photos in One Frame</a></li>
+          <li><a href="../tools/3-photo-collage/">3 Photo Collage</a></li>
+          <li><a href="../tools/4-photos-in-one-frame/">4 Photos (2x2 Grid)</a></li>
+          <li><a href="../tools/6-photo-collage/">6 Photo Collage</a></li>
+          <li><a href="../tools/9-photo-collage/">9 Photo Collage (3x3)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Styles &amp; Occasions</h4>
+        <ul>
+          <li><a href="../tools/photo-grid-maker/">Photo Grid Maker</a></li>
+          <li><a href="../tools/heart-photo-collage/">Heart Photo Collage</a></li>
+          <li><a href="../tools/instagram-collage-maker/">Instagram Collage</a></li>
+          <li><a href="../tools/birthday-collage-maker/">Birthday Collage</a></li>
+          <li><a href="../tools/wedding-photo-collage/">Wedding Collage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company &amp; Legal</h4>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Daily1Step Collage Tools. All rights reserved. 100% Client-Side Processing.</div>
+      <div>
+        <a href="../privacy-policy.html" style="margin-right:12px;">Privacy Policy</a>
+        <a href="../terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../vendor/jspdf.umd.min.js"></script>
+<script src="../vendor/jszip.min.js"></script>
+<script src="../assets/js/collage-core.js"></script>
+</body>
+</html>
